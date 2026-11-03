@@ -1,0 +1,34 @@
+{
+  "windows_requirements": [
+    {
+      "path": "tests/unit/buttons/test_button_dispatcher.py",
+      "reason": "依赖 POSIX 配置代际符号链接，当前 Windows 主机无创建符号链接权限。"
+    },
+    {
+      "path": "tests/unit/cam/test_camera_cli_config.py",
+      "reason": "断言 Linux /dev 路径，并使用仅 Linux 可用的执行锁。"
+    },
+    {
+      "path": "tests/unit/tasks/test_execution_lock.py",
+      "reason": "依赖 fcntl.flock，需在 Linux 环境验证。"
+    },
+    {
+      "path": "tests/unit/test_calibration.py",
+      "reason": "依赖 fcntl 文件锁及 POSIX 原子符号链接发布。"
+    }
+  ],
+  "known_baseline_failures": [
+    {
+      "node": "tests/unit/test_task1_config.py::Task1ConfigContractTest::test_official_json_is_complete_fixed_configuration",
+      "reason": "已在原工程复现：断言仍期待 20 mm，原提交配置为 8 mm。"
+    },
+    {
+      "node": "tests/integration/tasks/test_task1_pipeline.py::Task1PipelineIntegrationTest::test_fixed_task1_timeout_uses_last_reviewed_two_piece_scene",
+      "reason": "已在原工程复现：固定模式对超时后部分碎片场景的历史预期不符。"
+    },
+    {
+      "node": "tests/integration/tasks/test_task1_pipeline.py::Task1PipelineIntegrationTest::test_structured_detect1_results_run_real_fixed_planner",
+      "reason": "已在原工程复现：旧断言期待 100 mm，原有留缝布局返回约 111.831 mm。"
+    }
+  ]
+}

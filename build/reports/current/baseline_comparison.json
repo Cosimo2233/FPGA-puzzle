@@ -1,0 +1,34 @@
+{
+  "unit_failed_tests_identical_to_original": true,
+  "unit_failure_count": 20,
+  "integration_failed_tests_identical_to_original": true,
+  "integration_failure_count": 2,
+  "unit_failures": [
+    "tests.unit.buttons.test_button_dispatcher::test_a7z_physical_pin_mapping_uses_two_gpiochips",
+    "tests.unit.buttons.test_button_dispatcher::test_dispatcher_freezes_generation_and_only_overrides_task",
+    "tests.unit.buttons.test_button_dispatcher::test_idle_ui_cancel_does_not_poison_next_task",
+    "tests.unit.buttons.test_button_dispatcher::test_nonretryable_failure_releases_lock_immediately",
+    "tests.unit.buttons.test_button_dispatcher::test_retryable_failure_restarts_inside_window",
+    "tests.unit.buttons.test_button_dispatcher::test_running_timeout_requests_safe_sigint",
+    "tests.unit.buttons.test_button_dispatcher::test_status_file_is_valid_json",
+    "tests.unit.buttons.test_button_dispatcher::test_ui_cancel_cleanup_timeout_reports_forced_stop",
+    "tests.unit.buttons.test_button_dispatcher::test_ui_cancel_requests_safe_sigint_and_prevents_retry",
+    "tests.unit.cam.test_camera_cli_config.CameraCliConfigTest::test_detected_video_cli_overrides_environment_resolutions",
+    "tests.unit.cam.test_camera_cli_config.CameraCliConfigTest::test_detected_video_reads_device_and_resolutions_from_environment",
+    "tests.unit.cam.test_camera_cli_config.CameraCliConfigTest::test_invalid_a4_ratio_fails_before_device_query",
+    "tests.unit.cam.test_camera_cli_config.CameraCliConfigTest::test_record_camera_reads_device_and_resolution_from_environment",
+    "tests.unit.tasks.test_execution_lock::test_context_manager_releases_after_exception",
+    "tests.unit.tasks.test_execution_lock::test_second_owner_is_rejected_until_first_releases",
+    "tests.unit.test_calibration.CalibrationConfigurationTest::test_initialize_preserves_values_and_exposes_all_template_fields",
+    "tests.unit.test_calibration.CalibrationConfigurationTest::test_invalid_draft_cannot_replace_active_generation",
+    "tests.unit.test_calibration.CalibrationConfigurationTest::test_preview_command_uses_active_task_without_recording",
+    "tests.unit.test_calibration.CalibrationConfigurationTest::test_publish_switches_whole_generation_and_restore_updates_draft",
+    "tests.unit.test_task1_config.Task1ConfigContractTest::test_official_json_is_complete_fixed_configuration"
+  ],
+  "integration_failures": [
+    "tests.integration.tasks.test_task1_pipeline.Task1PipelineIntegrationTest::test_fixed_task1_timeout_uses_last_reviewed_two_piece_scene",
+    "tests.integration.tasks.test_task1_pipeline.Task1PipelineIntegrationTest::test_structured_detect1_results_run_real_fixed_planner"
+  ],
+  "assertions_changed": false,
+  "motion_executed": false
+}

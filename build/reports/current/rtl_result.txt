@@ -1,0 +1,2 @@
+PASS: raster, RGB order, frame alignment, blanking and underrun recovery (51 pixels)
+PASS: ADV7511 RGB order, inverted ODDRE1 clock, raster, frame alignment, blanking and underrun recovery (51 pixels)

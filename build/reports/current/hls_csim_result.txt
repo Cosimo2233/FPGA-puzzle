@@ -1,0 +1,8 @@
+PASS: six frames, borders, changing dimensions, pixel reference, TLAST
+PASS RELOCATED CSIM: preprocess
+PASS rigid fit protocol and numeric cases
+PASS RELOCATED CSIM: rigid
+PASS 8 scans; max distance error 1.52588e-05 mm
+PASS RELOCATED CSIM: clearance
+PASS 9 batches; max distance error 7.62939e-06 mm
+PASS RELOCATED CSIM: candidate

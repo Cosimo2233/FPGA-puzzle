@@ -1,0 +1,61 @@
+{
+  "date": "2026-11-01",
+  "application_commit": "10380bddaa27e8dafa2c7bf2d5075d6e03541dbe",
+  "software": {
+    "passed": 607,
+    "deselected_historical_cases": 3,
+    "subtests_passed": 139,
+    "windows_files_excluded": [
+      {
+        "path": "tests/unit/buttons/test_button_dispatcher.py",
+        "reason": "依赖 POSIX 配置代际符号链接，当前 Windows 主机无创建符号链接权限。"
+      },
+      {
+        "path": "tests/unit/cam/test_camera_cli_config.py",
+        "reason": "断言 Linux /dev 路径，并使用仅 Linux 可用的执行锁。"
+      },
+      {
+        "path": "tests/unit/tasks/test_execution_lock.py",
+        "reason": "依赖 fcntl.flock，需在 Linux 环境验证。"
+      },
+      {
+        "path": "tests/unit/test_calibration.py",
+        "reason": "依赖 fcntl 文件锁及 POSIX 原子符号链接发布。"
+      }
+    ],
+    "full_suite_all_green": false
+  },
+  "timing_feature": {
+    "passed": 147,
+    "subtests_passed": 34,
+    "production_source_sha256": {
+      "gui/board_menu.py": "81f2192474e552c41727c73aba1e941deeff99511e05abb22e3116f37fe45d94",
+      "gui/live_plan.py": "f2cbd399beb321f030c193fa64bca52e6538abfebbdfdc0b90f6338606c8b0ee",
+      "gui/plan_preview.py": "9b5211af2111c3e87499a8cf628026aaad6298d1c43e8a19b0eaebafc3cb8529",
+      "tasks/tangram.py": "2813f576c89a989a20e0f59c759897ed55d868a0a3206e24b8eb755cd33c8f47",
+      "tasks/task1/application.py": "73ad48b4068cfc890f06012d72b1d7c5123215952fb26f6b2007c5cbcddb2236",
+      "tasks/task2/application.py": "9a996c2552fb5481bfeb9da4ed6504490e5aa2c57cb4a234b4613e77008f4b91",
+      "tasks/timing.py": "2750e31634dc16195e1f25fc406450418e2e693ccb2f135fd0dee4a9b803b04d"
+    }
+  },
+  "hls_csim_cores": [
+    "preprocess",
+    "rigid",
+    "clearance",
+    "candidate"
+  ],
+  "rtl_testbenches": 2,
+  "firmware_native_tests": 2,
+  "project_files_verified": 921,
+  "bd_validated": true,
+  "project_generation_hls_source": "使用匹配的既有 HLS 导出 IP 完成工程检查；四核源码与原清单一致，重新 C 仿真通过。本轮未执行 HLS 综合。",
+  "new_complete_implementation_run": false,
+  "board_deployed": false,
+  "motion_executed": false,
+  "historical_reports": "build/reports/reference",
+  "new_reports": "build/reports/current",
+  "final_manifest_entries": 635,
+  "powershell_syntax_passed": true,
+  "final_wheel_contains_timing": true,
+  "generated_files_removed": true
+}

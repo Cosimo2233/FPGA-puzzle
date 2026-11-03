@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="2" skipped="0" tests="20" time="1.668" timestamp="2026-11-01T15:12:28.813813+08:00" hostname="Cosimo"><testcase classname="sim.tests.integration.tasks.test_task1_application.Task1ApplicationIntegrationTest" name="test_camera_failure_is_chinese_and_skips_actuator" time="0.003" /><testcase classname="sim.tests.integration.tasks.test_task1_application.Task1ApplicationIntegrationTest" name="test_default_detector_factory_is_unified_vision" time="0.002" /><testcase classname="sim.tests.integration.tasks.test_task1_application.Task1ApplicationIntegrationTest" name="test_detector_is_closed_before_actuator_construction" time="0.020" /><testcase classname="sim.tests.integration.tasks.test_task1_application.Task1ApplicationIntegrationTest" name="test_detector_lifecycle_stays_on_application_thread" time="0.017" /><testcase classname="sim.tests.integration.tasks.test_task1_application.Task1ApplicationIntegrationTest" name="test_disabled_context_never_constructs_observer" time="0.015" /><testcase classname="sim.tests.integration.tasks.test_task1_application.Task1ApplicationIntegrationTest" name="test_inference_failure_closes_detector_and_skips_planning_and_motion" time="0.002" /><testcase classname="sim.tests.integration.tasks.test_task1_application.Task1ApplicationIntegrationTest" name="test_npu_initialization_failure_skips_camera_planning_and_motion" time="0.001" /><testcase classname="sim.tests.integration.tasks.test_task1_application.Task1ApplicationIntegrationTest" name="test_plan_stays_in_memory_and_task_returns_none" time="0.013" /><testcase classname="sim.tests.integration.tasks.test_task1_application.Task1ApplicationIntegrationTest" name="test_planning_failure_is_chinese_and_skips_actuator" time="0.014" /><testcase classname="sim.tests.integration.tasks.test_task1_application.Task1ApplicationIntegrationTest" name="test_preview_cancellation_skips_planner_and_actuator" time="0.001" /><testcase classname="sim.tests.integration.tasks.test_task1_application.Task1ApplicationIntegrationTest" name="test_timeout_blocks_actuation_and_closes_detector" time="0.007" /><testcase classname="sim.tests.integration.tasks.test_task1_config.Task1ConfigIntegrationTest" name="test_official_config_builds_components_without_side_effects" time="0.003" /><testcase classname="sim.tests.integration.tasks.test_task1_config.Task1ConfigIntegrationTest" name="test_official_options_drive_task1_without_dictionary_bridge" time="0.013" /><testcase classname="sim.tests.integration.tasks.test_task1_pipeline.Task1PipelineIntegrationTest" name="test_fixed_task1_timeout_uses_last_reviewed_two_piece_scene" time="0.014"><failure message="ec_26_e.tasks.task1.contracts.Task1TimeoutError: Task1 在 0.003 秒内未获得稳定结果；已处理帧=3，异常事件=7，最后原因=测试相机已无新帧；周期=1，处理失败帧=0，A4跳变帧=0，A4合格帧=0，纸片跳变=无，合格纸片=0，共同合格帧=0，周期原因=尚未开始采集">self = &lt;tests.integration.tasks.test_task1_pipeline.Task1PipelineIntegrationTest testMethod=test_fixed_task1_timeout_uses_last_reviewed_two_piece_scene&gt;
+
+    def test_fixed_task1_timeout_uses_last_reviewed_two_piece_scene(self) -&gt; None:
+        """稳定超时后应把最后一帧交给下一步，由规划器决定如何处理。"""
+    
+        detections = make_detect_result(
+            tuple(
+                (
+                    index,
+                    portrait_vertices_to_landscape_relative(
+                        piece.vertices_mm
+                    ),
+                )
+                for index, piece in enumerate(FIXED_PIECES[:2])
+            )
+        )
+        frames = tuple(
+            make_camera_frame(
+                index,
+                1_000_000_000 + index * 500_000_000,
+            )
+            for index in range(3)
+        )
+        camera = FakeCamera(frames)
+        planner = RecordingPlanner(camera)
+    
+&gt;       run_task1(
+            camera,
+            SequenceResizer(frames[0]),
+            ConstantDetector(detections),
+            options=Task1Options(
+                review_cycle_seconds=0.001,
+                minimum_stable_frames=3,
+                acquisition_timeout_seconds=0.003,
+                frame_read_timeout_seconds=0.001,
+                planning_options=PlanningOptions(mode="fixed"),
+            ),
+            planner=planner,
+        )
+
+..\..\sim\tests\integration\tasks\test_task1_pipeline.py:52: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src\ec_26_e\tasks\task1\runner.py:281: in run_task1
+    return run_puzzle_task(
+src\ec_26_e\tasks\task1\runner.py:223: in run_puzzle_task
+    pieces = _acquire_stable_pieces(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+camera = &lt;tests.unit.tasks.task1_helpers.FakeCamera object at 0x0000018A340819D0&gt;
+resizer = &lt;tests.unit.tasks.task1_helpers.SequenceResizer object at 0x0000018A34081C70&gt;
+detector = &lt;tests.unit.tasks.task1_helpers.ConstantDetector object at 0x0000018A34081E80&gt;
+options = Task1Options(minimum_stable_frames=3, piece_vertex_tolerance_mm=2.0, workspace_corner_x_tolerance_mm=2.0, workspace_co...=100, start_xy_a4_mm=(10.0, 10.0), minimum_execution_confidence=0.6, competition_rules=False), continuous_review=False)
+observer = None, task_label = 'Task1'
+metrics = {'mode': 'fixed', 'camera_start_seconds': 3.00002284348011e-07, 'capture_seconds': 3.500026650726795e-06, 'resize_seconds': 2.7799978852272034e-05, ...}
+display = None
+
+    def _acquire_stable_pieces(camera, resizer, detector, options, observer, task_label, metrics=None, display=None):
+        """只返回当前连续稳定场景；超时或失效不回退到历史帧。"""
+        reviewer = StableSceneReviewer(options)
+        deadline = time.monotonic() + options.acquisition_timeout_seconds
+        after_sequence = None
+        processed_frames = invalid_events = 0
+        last_reason = None
+        metrics = metrics if metrics is not None else {}
+        logger.info("正在观测纸片：稳定审查周期 %.1f 秒，采集期限 %.1f 秒",
+                    options.review_cycle_seconds, options.acquisition_timeout_seconds)
+        while time.monotonic() &lt; deadline:
+            frame = resize_result = None
+            try:
+                phase = time.perf_counter()
+                frame = camera.read_latest(after_sequence=after_sequence,
+                    timeout=min(options.frame_read_timeout_seconds, max(0.001, deadline-time.monotonic())))
+                metrics['capture_seconds'] = metrics.get('capture_seconds', 0.0) + time.perf_counter() - phase
+                if not isinstance(frame, CameraFrame):
+                    raise Task1Error("camera.read_latest 必须返回 CameraFrame")
+                if after_sequence is not None and frame.sequence_id &lt;= after_sequence:
+                    raise Task1Error("相机必须返回序号严格递增的新帧")
+                after_sequence = frame.sequence_id
+                if display is not None:
+                    from ec_26_e.gui.plan_preview import display_call
+                    display_call(display, 'acquiring', frame)
+                processed_frames += 1
+                logger.info("正在观测纸片：处理第 %d 帧（相机序号 %d）",
+                            processed_frames, frame.sequence_id)
+                phase = time.perf_counter()
+                resize_result = resizer.resize(frame.image_bgr)
+                metrics['resize_seconds'] = metrics.get('resize_seconds', 0.0) + time.perf_counter() - phase
+                phase = time.perf_counter()
+                result = detector.detect(resize_result.image_bgr)
+                metrics['detect_seconds'] = metrics.get('detect_seconds', 0.0) + time.perf_counter() - phase
+                single_detector = getattr(detector, 'detector', detector)
+                diagnostics = getattr(single_detector, 'last_diagnostics', None)
+                metrics['preprocess_seconds'] = metrics.get('preprocess_seconds', 0.0) + (
+                    getattr(diagnostics, 'stage_ms', {}).get('preprocess', 0.0) / 1000)
+                # The continuous reviewer itself validates six fresh single-frame geometries.
+                # Do not stack another six-frame warm-up ahead of that same gate.
+                if options.continuous_review:
+                    result = getattr(detector, 'last_single_result', None) or result
+                if not result.pieces:
+                    detail = getattr(getattr(detector, "detector", detector), "last_failure", None)
+                    raise ValueError(detail or "纸片尚未稳定，请保持分开放置")
+                if options.planning_options.mode == "fixed" and len(result.pieces) != 4:
+                    raise ValueError("固定模式必须恰好四片")
+                reviewed = review_visual_frame(frame, resize_result, result, options.landscape_rotation)
+                phase = time.perf_counter()
+                cycle = reviewer.add_frame(reviewed)
+                metrics['review_seconds'] = metrics.get('review_seconds', 0.0) + time.perf_counter() - phase
+                if observer is not None and observer.show_detection(frame, resize_result, result):
+                    raise TaskCancelledError("用户通过预览窗口中止任务")
+                if time.monotonic() &gt;= deadline:
+                    break
+                if cycle is not None and cycle.accepted:
+                    if display is not None:
+                        from ec_26_e.gui.plan_preview import display_call
+                        display_call(display, 'capture', frame, resize_result)
+                    logger.info("稳定审查通过：%d 片纸片，已处理 %d 帧",
+                                len(cycle.pieces), processed_frames)
+                    metrics.update(processed_frames=processed_frames, invalid_frames=invalid_events)
+                    preprocessor = getattr(single_detector, 'preprocessor', None)
+                    metrics['vision_pl'] = {key: getattr(preprocessor, key) for key in
+                        ('frame_count', 'pack_seconds', 'dma_seconds', 'copy_seconds',
+                         'calibration_seconds', 'last_blue_min')
+                        if hasattr(preprocessor, key)}
+                    return cycle.pieces
+                last_reason = "等待完整连续稳定周期" if cycle is None else cycle.diagnostics.to_text()
+                logger.info("正在观测纸片：识别到 %d 片；%s", len(result.pieces), last_reason)
+            except (CameraTimeoutError, ValueError) as error:
+                invalid_events += 1
+                last_reason = str(error)
+                logger.info("正在观测纸片：第 %d 帧尚未通过，原因：%s",
+                            processed_frames, last_reason)
+                reviewer = StableSceneReviewer(options)
+                # 预热空结果保留单帧历史；采集或工作区失败则清空。
+                if resize_result is None and callable(getattr(detector, "reset", None)):
+                    detector.reset()
+                if observer is not None and frame is not None and observer.show_failure(
+                    frame, stage="workspace" if resize_result is None else "detect1", resize_result=resize_result):
+                    raise TaskCancelledError("用户通过预览窗口中止任务")
+                if isinstance(error, CameraTimeoutError):
+                    time.sleep(min(0.005, max(0.0, deadline-time.monotonic())))
+&gt;       raise _format_timeout(options, processed_frames, invalid_events, reviewer, last_reason, task_label)
+E       ec_26_e.tasks.task1.contracts.Task1TimeoutError: Task1 在 0.003 秒内未获得稳定结果；已处理帧=3，异常事件=7，最后原因=测试相机已无新帧；周期=1，处理失败帧=0，A4跳变帧=0，A4合格帧=0，纸片跳变=无，合格纸片=0，共同合格帧=0，周期原因=尚未开始采集
+
+src\ec_26_e\tasks\task1\runner.py:176: Task1TimeoutError</failure></testcase><testcase classname="sim.tests.integration.tasks.test_task1_pipeline.Task1PipelineIntegrationTest" name="test_structured_detect1_results_run_real_fixed_planner" time="0.110"><failure message="AssertionError: 111.83105462640475 != 100.0 within 7 places (11.83105462640475 difference)">self = &lt;tests.integration.tasks.test_task1_pipeline.Task1PipelineIntegrationTest testMethod=test_structured_detect1_results_run_real_fixed_planner&gt;
+
+    def test_structured_detect1_results_run_real_fixed_planner(self) -&gt; None:
+        """四片结构化检测结果应直接进入真实 fixed 控制求解。"""
+    
+        detections = make_detect_result(
+            tuple(
+                (
+                    index,
+                    portrait_vertices_to_landscape_relative(
+                        piece.vertices_mm
+                    ),
+                )
+                for index, piece in enumerate(FIXED_PIECES)
+            )
+        )
+        frames = (
+            make_camera_frame(0, 1_000_000_000),
+            make_camera_frame(1, 2_000_000_000),
+        )
+        camera = FakeCamera(frames)
+    
+        plan = run_task1(
+            camera,
+            SequenceResizer(frames[0]),
+            ConstantDetector(detections),
+            options=Task1Options(
+                review_cycle_seconds=1.0,
+                minimum_stable_frames=2,
+                acquisition_timeout_seconds=5.0,
+                planning_options=PlanningOptions(mode="fixed"),
+            ),
+            planner=plan_sheet_moves,
+        )
+    
+        self.assertEqual(plan.mode, "fixed")
+        self.assertEqual(len(plan.moves), 4)
+&gt;       self.assertAlmostEqual(plan.target_width_mm, 100.0)
+E       AssertionError: 111.83105462640475 != 100.0 within 7 places (11.83105462640475 difference)
+
+..\..\sim\tests\integration\tasks\test_task1_pipeline.py:104: AssertionError</failure></testcase><testcase classname="sim.tests.integration.tasks.test_task2_application.Task2ApplicationTest" name="test_default_actuator_uses_same_completion_led_as_task1" time="0.002" /><testcase classname="sim.tests.integration.tasks.test_task2_application.Task2ApplicationTest" name="test_default_detector_factory_is_unified_vision" time="0.000" /><testcase classname="sim.tests.integration.tasks.test_task2_application.Task2ApplicationTest" name="test_inference_failure_closes_detector_and_skips_motion" time="0.001" /><testcase classname="sim.tests.integration.tasks.test_task2_application.Task2ApplicationTest" name="test_random_plan_reaches_actuator_after_camera_cleanup" time="0.013" /><testcase classname="sim.tests.integration.tasks.test_task2_application.Task2ApplicationTest" name="test_stable_scene_reaches_real_random_planner" time="0.168" /></testsuite></testsuites>

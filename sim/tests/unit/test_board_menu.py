@@ -1,0 +1,99 @@
+"""验证摄像头管道分块、截断和菜单文字状态更新。"""
+import io
+import struct
+import threading
+import pytest
+from types import SimpleNamespace
+from unittest.mock import Mock
+
+from ec_26_e.gui.board_menu import BoardMenu, CameraPipe
+from ec_26_e.gui import production_preview
+from ec_26_e.gui.camera_pipe import ERROR_PACKET
+from ec_26_e.tasks.execution_lock import TaskBusyError
+
+
+class ShortStream(io.BytesIO):
+    def readinto(self, target):
+        return super().readinto(target[:3])
+
+
+def test_camera_pipe_preserves_complete_ppm_across_short_reads():
+    frame = b'P6\n2 1\n255\n' + bytes(range(6))
+    pipe = CameraPipe()
+    pipe.process = SimpleNamespace(stdout=ShortStream(struct.pack('!I', len(frame)) + frame))
+    pipe._read()
+    assert pipe.latest == frame
+    assert pipe.version == 1
+
+
+def test_camera_pipe_does_not_publish_truncated_frame():
+    pipe = CameraPipe()
+    pipe.process = SimpleNamespace(stdout=ShortStream(struct.pack('!I', 12) + b'abcd'))
+    pipe._read()
+    assert pipe.latest is None
+    assert pipe.version == 0
+    assert '截断' in pipe.error
+
+
+def test_warm_camera_ack_is_not_a_frame():
+    pipe = CameraPipe()
+    pipe.process = SimpleNamespace(stdout=io.BytesIO(struct.pack('!I', 0)))
+    pipe._read()
+    assert pipe.ready
+    assert pipe.latest is None and pipe.version == 0
+
+
+@pytest.mark.parametrize('error,code,text', [
+    (TaskBusyError('lock is held'), 2, '设备正由其他任务或维护占用'),
+    (RuntimeError('摄像头连续 3 秒没有新帧'), 1, '摄像头连续 3 秒没有新帧'),
+])
+def test_preview_worker_error_reaches_menu_without_becoming_image(monkeypatch, error, code, text):
+    output = io.BytesIO()
+    monkeypatch.setattr(production_preview, 'main', Mock(side_effect=error))
+    monkeypatch.setattr(production_preview, 'sys', SimpleNamespace(stdout=SimpleNamespace(buffer=output)))
+    assert production_preview.run() == code
+    pipe = CameraPipe()
+    pipe.process = SimpleNamespace(stdout=ShortStream(output.getvalue()))
+    pipe._read()
+    assert text in pipe.error
+    assert pipe.version == 0 and pipe.latest is None
+    if code == 2:
+        assert pipe.error_code == 'busy' and 'USB' not in pipe.error
+
+
+def test_preview_rejects_unbounded_error_and_normal_close_is_not_usb_failure():
+    pipe = CameraPipe()
+    pipe.process = SimpleNamespace(stdout=io.BytesIO(struct.pack('!II', ERROR_PACKET, 8193)))
+    pipe._read()
+    assert '长度无效' in pipe.error and pipe.latest is None
+    pipe = CameraPipe()
+    pipe._closing = True
+    pipe.process = SimpleNamespace(stdout=io.BytesIO())
+    pipe._read()
+    assert pipe.error is None
+
+
+def test_menu_updates_changed_text_and_keeps_button_polling():
+    menu = BoardMenu.__new__(BoardMenu)
+    menu.closing = False
+    menu.root = Mock()
+    menu.keys = Mock(read=Mock(return_value={'mode': False}))
+    menu.edges = Mock(update=Mock(return_value=[]))
+    menu.model = SimpleNamespace(preview=False, busy=False, message='就绪', motion_enabled=False, poll_task=Mock())
+    menu.transition = None
+    menu.camera = Mock()
+    menu.status = Mock()
+    menu.health = Mock()
+    menu.key_error = ''
+    menu._status_text = menu._health_text = None
+    menu.last_status = float('inf')
+    for _ in range(5):
+        menu.poll()
+    assert menu.status.configure.call_count == menu.health.configure.call_count == 1
+    assert menu.keys.read.call_count == 5
+    menu.model.message = '采集完成'
+    menu.key_error = 'GPIO 故障'
+    menu.poll()
+    menu.status.configure.assert_called_with(text='采集完成')
+    assert 'GPIO 故障' in menu.health.configure.call_args.kwargs['text']
+    assert menu.root.after.call_count == 6

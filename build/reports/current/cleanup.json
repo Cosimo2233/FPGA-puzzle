@@ -1,0 +1,15 @@
+{
+  "date": "2026-11-01",
+  "before": {
+    "files": 2258,
+    "bytes": 444964872
+  },
+  "after": {
+    "files": 650,
+    "bytes": 33768955
+  },
+  "removed_bytes": 411195917,
+  "retained": "源码、保存的 XPR/BD、约束、测试输入、锁定依赖、技能、匹配启动文件与工程技术说明",
+  "timing_in_final_wheel": true,
+  "design_report_included": false
+}

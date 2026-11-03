@@ -1,0 +1,18 @@
+{
+  "installed_sources_verified": true,
+  "motion_executed": false,
+  "camera_opened": false,
+  "timing": {
+    "token": "timing-plan-only",
+    "state": "complete",
+    "calculation_seconds": 7.328122248,
+    "total_seconds": 7.331300810001267
+  },
+  "label": "计算时间：7.33 s    总时间：7.33 s",
+  "label_bounds": [
+    921,
+    652,
+    327,
+    27
+  ]
+}

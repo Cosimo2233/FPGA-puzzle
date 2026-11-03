@@ -1,0 +1,5 @@
+PASS HLS ABI: preprocess
+PASS HLS ABI: rigid
+PASS HLS ABI: clearance
+PASS HLS ABI: candidate
+PASS: 921 project files exist; no old-workspace source dependencies; part/top/HLS ABI verified; BD validated. This does not claim a new implemented design.

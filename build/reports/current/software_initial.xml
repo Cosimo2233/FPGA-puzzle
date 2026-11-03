@@ -1,0 +1,649 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="20" skipped="0" tests="736" time="43.836" timestamp="2026-11-01T15:08:36.477920+08:00" hostname="Cosimo"><testcase classname="sim.tests.unit.buttons.test_button_diagnostic" name="test_prints_only_pressed_physical_pin_and_closes_source" time="0.001" /><testcase classname="sim.tests.unit.buttons.test_button_dispatcher" name="test_a7z_physical_pin_mapping_uses_two_gpiochips" time="0.008"><failure message="OSError: [WinError 1314] 客户端没有所需的特权。: 'generations\\v1' -&gt; 'C:\\Users\\29871\\AppData\\Local\\Temp\\pytest-of-29871\\pytest-97\\test_a7z_physical_pin_mapping_0\\active'">tmp_path = WindowsPath('C:/Users/29871/AppData/Local/Temp/pytest-of-29871/pytest-97/test_a7z_physical_pin_mapping_0')
+
+    def test_a7z_physical_pin_mapping_uses_two_gpiochips(tmp_path: Path) -&gt; None:
+        """验证物理35和37使用内核实际报告的chip及line。"""
+    
+&gt;       config = make_config(tmp_path)
+                 ^^^^^^^^^^^^^^^^^^^^^
+
+..\..\sim\tests\unit\buttons\test_button_dispatcher.py:76: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\..\sim\tests\unit\buttons\test_button_dispatcher.py:59: in make_config
+    (root / "active").symlink_to(Path("generations/v1"))
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = WindowsPath('C:/Users/29871/AppData/Local/Temp/pytest-of-29871/pytest-97/test_a7z_physical_pin_mapping_0/active')
+target = WindowsPath('generations/v1'), target_is_directory = False
+
+    def symlink_to(self, target, target_is_directory=False):
+        """
+        Make this path a symlink pointing to the target path.
+        Note the order of arguments (link, target) is the reverse of os.symlink.
+        """
+        if not hasattr(os, "symlink"):
+            raise NotImplementedError("os.symlink() not available on this system")
+&gt;       os.symlink(target, self, target_is_directory)
+E       OSError: [WinError 1314] 客户端没有所需的特权。: 'generations\\v1' -&gt; 'C:\\Users\\29871\\AppData\\Local\\Temp\\pytest-of-29871\\pytest-97\\test_a7z_physical_pin_mapping_0\\active'
+
+D:\python\Lib\pathlib.py:1386: OSError</failure></testcase><testcase classname="sim.tests.unit.buttons.test_button_dispatcher" name="test_debouncer_requires_continuous_stability" time="0.000" /><testcase classname="sim.tests.unit.buttons.test_button_dispatcher" name="test_dispatcher_freezes_generation_and_only_overrides_task" time="0.004"><failure message="OSError: [WinError 1314] 客户端没有所需的特权。: 'generations\\v1' -&gt; 'C:\\Users\\29871\\AppData\\Local\\Temp\\pytest-of-29871\\pytest-97\\test_dispatcher_freezes_genera0\\active'">tmp_path = WindowsPath('C:/Users/29871/AppData/Local/Temp/pytest-of-29871/pytest-97/test_dispatcher_freezes_genera0')
+
+    def test_dispatcher_freezes_generation_and_only_overrides_task(tmp_path: Path) -&gt; None:
+        """验证任务命令固定同一代env/JSON并传入显式任务选择。"""
+    
+&gt;       config = make_config(tmp_path)
+                 ^^^^^^^^^^^^^^^^^^^^^
+
+..\..\sim\tests\unit\buttons\test_button_dispatcher.py:104: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\..\sim\tests\unit\buttons\test_button_dispatcher.py:59: in make_config
+    (root / "active").symlink_to(Path("generations/v1"))
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = WindowsPath('C:/Users/29871/AppData/Local/Temp/pytest-of-29871/pytest-97/test_dispatcher_freezes_genera0/active')
+target = WindowsPath('generations/v1'), target_is_directory = False
+
+    def symlink_to(self, target, target_is_directory=False):
+        """
+        Make this path a symlink pointing to the target path.
+        Note the order of arguments (link, target) is the reverse of os.symlink.
+        """
+        if not hasattr(os, "symlink"):
+            raise NotImplementedError("os.symlink() not available on this system")
+&gt;       os.symlink(target, self, target_is_directory)
+E       OSError: [WinError 1314] 客户端没有所需的特权。: 'generations\\v1' -&gt; 'C:\\Users\\29871\\AppData\\Local\\Temp\\pytest-of-29871\\pytest-97\\test_dispatcher_freezes_genera0\\active'
+
+D:\python\Lib\pathlib.py:1386: OSError</failure></testcase><testcase classname="sim.tests.unit.buttons.test_button_dispatcher" name="test_retryable_failure_restarts_inside_window" time="0.005"><failure message="OSError: [WinError 1314] 客户端没有所需的特权。: 'generations\\v1' -&gt; 'C:\\Users\\29871\\AppData\\Local\\Temp\\pytest-of-29871\\pytest-97\\test_retryable_failure_restart0\\active'">tmp_path = WindowsPath('C:/Users/29871/AppData/Local/Temp/pytest-of-29871/pytest-97/test_retryable_failure_restart0')
+
+    def test_retryable_failure_restarts_inside_window(tmp_path: Path) -&gt; None:
+        """验证75退出码在120秒内按固定延时启动下一次尝试。"""
+    
+&gt;       config = make_config(tmp_path)
+                 ^^^^^^^^^^^^^^^^^^^^^
+
+..\..\sim\tests\unit\buttons\test_button_dispatcher.py:139: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\..\sim\tests\unit\buttons\test_button_dispatcher.py:59: in make_config
+    (root / "active").symlink_to(Path("generations/v1"))
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = WindowsPath('C:/Users/29871/AppData/Local/Temp/pytest-of-29871/pytest-97/test_retryable_failure_restart0/active')
+target = WindowsPath('generations/v1'), target_is_directory = False
+
+    def symlink_to(self, target, target_is_directory=False):
+        """
+        Make this path a symlink pointing to the target path.
+        Note the order of arguments (link, target) is the reverse of os.symlink.
+        """
+        if not hasattr(os, "symlink"):
+            raise NotImplementedError("os.symlink() not available on this system")
+&gt;       os.symlink(target, self, target_is_directory)
+E       OSError: [WinError 1314] 客户端没有所需的特权。: 'generations\\v1' -&gt; 'C:\\Users\\29871\\AppData\\Local\\Temp\\pytest-of-29871\\pytest-97\\test_retryable_failure_restart0\\active'
+
+D:\python\Lib\pathlib.py:1386: OSError</failure></testcase><testcase classname="sim.tests.unit.buttons.test_button_dispatcher" name="test_nonretryable_failure_releases_lock_immediately" time="0.004"><failure message="OSError: [WinError 1314] 客户端没有所需的特权。: 'generations\\v1' -&gt; 'C:\\Users\\29871\\AppData\\Local\\Temp\\pytest-of-29871\\pytest-97\\test_nonretryable_failure_rele0\\active'">tmp_path = WindowsPath('C:/Users/29871/AppData/Local/Temp/pytest-of-29871/pytest-97/test_nonretryable_failure_rele0')
+
+    def test_nonretryable_failure_releases_lock_immediately(tmp_path: Path) -&gt; None:
+        """验证运动等不可重试失败不会进入自动重试。"""
+    
+&gt;       config = make_config(tmp_path)
+                 ^^^^^^^^^^^^^^^^^^^^^
+
+..\..\sim\tests\unit\buttons\test_button_dispatcher.py:170: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\..\sim\tests\unit\buttons\test_button_dispatcher.py:59: in make_config
+    (root / "active").symlink_to(Path("generations/v1"))
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = WindowsPath('C:/Users/29871/AppData/Local/Temp/pytest-of-29871/pytest-97/test_nonretryable_failure_rele0/active')
+target = WindowsPath('generations/v1'), target_is_directory = False
+
+    def symlink_to(self, target, target_is_directory=False):
+        """
+        Make this path a symlink pointing to the target path.
+        Note the order of arguments (link, target) is the reverse of os.symlink.
+        """
+        if not hasattr(os, "symlink"):
+            raise NotImplementedError("os.symlink() not available on this system")
+&gt;       os.symlink(target, self, target_is_directory)
+E       OSError: [WinError 1314] 客户端没有所需的特权。: 'generations\\v1' -&gt; 'C:\\Users\\29871\\AppData\\Local\\Temp\\pytest-of-29871\\pytest-97\\test_nonretryable_failure_rele0\\active'
+
+D:\python\Lib\pathlib.py:1386: OSError</failure></testcase><testcase classname="sim.tests.unit.buttons.test_button_dispatcher" name="test_running_timeout_requests_safe_sigint" time="0.005"><failure message="OSError: [WinError 1314] 客户端没有所需的特权。: 'generations\\v1' -&gt; 'C:\\Users\\29871\\AppData\\Local\\Temp\\pytest-of-29871\\pytest-97\\test_running_timeout_requests_0\\active'">tmp_path = WindowsPath('C:/Users/29871/AppData/Local/Temp/pytest-of-29871/pytest-97/test_running_timeout_requests_0')
+
+    def test_running_timeout_requests_safe_sigint(tmp_path: Path) -&gt; None:
+        """验证120秒到期先发送SIGINT而不是直接强杀。"""
+    
+&gt;       config = make_config(tmp_path)
+                 ^^^^^^^^^^^^^^^^^^^^^
+
+..\..\sim\tests\unit\buttons\test_button_dispatcher.py:189: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\..\sim\tests\unit\buttons\test_button_dispatcher.py:59: in make_config
+    (root / "active").symlink_to(Path("generations/v1"))
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = WindowsPath('C:/Users/29871/AppData/Local/Temp/pytest-of-29871/pytest-97/test_running_timeout_requests_0/active')
+target = WindowsPath('generations/v1'), target_is_directory = False
+
+    def symlink_to(self, target, target_is_directory=False):
+        """
+        Make this path a symlink pointing to the target path.
+        Note the order of arguments (link, target) is the reverse of os.symlink.
+        """
+        if not hasattr(os, "symlink"):
+            raise NotImplementedError("os.symlink() not available on this system")
+&gt;       os.symlink(target, self, target_is_directory)
+E       OSError: [WinError 1314] 客户端没有所需的特权。: 'generations\\v1' -&gt; 'C:\\Users\\29871\\AppData\\Local\\Temp\\pytest-of-29871\\pytest-97\\test_running_timeout_requests_0\\active'
+
+D:\python\Lib\pathlib.py:1386: OSError</failure></testcase><testcase classname="sim.tests.unit.buttons.test_button_dispatcher" name="test_ui_cancel_requests_safe_sigint_and_prevents_retry" time="0.003"><failure message="OSError: [WinError 1314] 客户端没有所需的特权。: 'generations\\v1' -&gt; 'C:\\Users\\29871\\AppData\\Local\\Temp\\pytest-of-29871\\pytest-97\\test_ui_cancel_requests_safe_s0\\active'">tmp_path = WindowsPath('C:/Users/29871/AppData/Local/Temp/pytest-of-29871/pytest-97/test_ui_cancel_requests_safe_s0')
+
+    def test_ui_cancel_requests_safe_sigint_and_prevents_retry(tmp_path: Path) -&gt; None:
+        """验证界面取消先安全中断子进程，退出后释放锁且不重试。"""
+    
+&gt;       config = make_config(tmp_path)
+                 ^^^^^^^^^^^^^^^^^^^^^
+
+..\..\sim\tests\unit\buttons\test_button_dispatcher.py:211: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\..\sim\tests\unit\buttons\test_button_dispatcher.py:59: in make_config
+    (root / "active").symlink_to(Path("generations/v1"))
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = WindowsPath('C:/Users/29871/AppData/Local/Temp/pytest-of-29871/pytest-97/test_ui_cancel_requests_safe_s0/active')
+target = WindowsPath('generations/v1'), target_is_directory = False
+
+    def symlink_to(self, target, target_is_directory=False):
+        """
+        Make this path a symlink pointing to the target path.
+        Note the order of arguments (link, target) is the reverse of os.symlink.
+        """
+        if not hasattr(os, "symlink"):
+            raise NotImplementedError("os.symlink() not available on this system")
+&gt;       os.symlink(target, self, target_is_directory)
+E       OSError: [WinError 1314] 客户端没有所需的特权。: 'generations\\v1' -&gt; 'C:\\Users\\29871\\AppData\\Local\\Temp\\pytest-of-29871\\pytest-97\\test_ui_cancel_requests_safe_s0\\active'
+
+D:\python\Lib\pathlib.py:1386: OSError</failure></testcase><testcase classname="sim.tests.unit.buttons.test_button_dispatcher" name="test_idle_ui_cancel_does_not_poison_next_task" time="0.004"><failure message="OSError: [WinError 1314] 客户端没有所需的特权。: 'generations\\v1' -&gt; 'C:\\Users\\29871\\AppData\\Local\\Temp\\pytest-of-29871\\pytest-97\\test_idle_ui_cancel_does_not_p0\\active'">tmp_path = WindowsPath('C:/Users/29871/AppData/Local/Temp/pytest-of-29871/pytest-97/test_idle_ui_cancel_does_not_p0')
+
+    def test_idle_ui_cancel_does_not_poison_next_task(tmp_path: Path) -&gt; None:
+        """验证空闲时收到停止请求不会导致下一次任务被自动取消。"""
+    
+        dispatcher = ButtonDispatcher(
+&gt;           make_config(tmp_path),
+            ^^^^^^^^^^^^^^^^^^^^^
+            source=FakeSource(),  # type: ignore[arg-type]
+        )
+
+..\..\sim\tests\unit\buttons\test_button_dispatcher.py:241: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\..\sim\tests\unit\buttons\test_button_dispatcher.py:59: in make_config
+    (root / "active").symlink_to(Path("generations/v1"))
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = WindowsPath('C:/Users/29871/AppData/Local/Temp/pytest-of-29871/pytest-97/test_idle_ui_cancel_does_not_p0/active')
+target = WindowsPath('generations/v1'), target_is_directory = False
+
+    def symlink_to(self, target, target_is_directory=False):
+        """
+        Make this path a symlink pointing to the target path.
+        Note the order of arguments (link, target) is the reverse of os.symlink.
+        """
+        if not hasattr(os, "symlink"):
+            raise NotImplementedError("os.symlink() not available on this system")
+&gt;       os.symlink(target, self, target_is_directory)
+E       OSError: [WinError 1314] 客户端没有所需的特权。: 'generations\\v1' -&gt; 'C:\\Users\\29871\\AppData\\Local\\Temp\\pytest-of-29871\\pytest-97\\test_idle_ui_cancel_does_not_p0\\active'
+
+D:\python\Lib\pathlib.py:1386: OSError</failure></testcase><testcase classname="sim.tests.unit.buttons.test_button_dispatcher" name="test_ui_cancel_cleanup_timeout_reports_forced_stop" time="0.003"><failure message="OSError: [WinError 1314] 客户端没有所需的特权。: 'generations\\v1' -&gt; 'C:\\Users\\29871\\AppData\\Local\\Temp\\pytest-of-29871\\pytest-97\\test_ui_cancel_cleanup_timeout0\\active'">tmp_path = WindowsPath('C:/Users/29871/AppData/Local/Temp/pytest-of-29871/pytest-97/test_ui_cancel_cleanup_timeout0')
+
+    def test_ui_cancel_cleanup_timeout_reports_forced_stop(tmp_path: Path) -&gt; None:
+        """验证取消清理超时不会被误报为已经安全释放。"""
+    
+&gt;       config = make_config(tmp_path)
+                 ^^^^^^^^^^^^^^^^^^^^^
+
+..\..\sim\tests\unit\buttons\test_button_dispatcher.py:253: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\..\sim\tests\unit\buttons\test_button_dispatcher.py:59: in make_config
+    (root / "active").symlink_to(Path("generations/v1"))
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = WindowsPath('C:/Users/29871/AppData/Local/Temp/pytest-of-29871/pytest-97/test_ui_cancel_cleanup_timeout0/active')
+target = WindowsPath('generations/v1'), target_is_directory = False
+
+    def symlink_to(self, target, target_is_directory=False):
+        """
+        Make this path a symlink pointing to the target path.
+        Note the order of arguments (link, target) is the reverse of os.symlink.
+        """
+        if not hasattr(os, "symlink"):
+            raise NotImplementedError("os.symlink() not available on this system")
+&gt;       os.symlink(target, self, target_is_directory)
+E       OSError: [WinError 1314] 客户端没有所需的特权。: 'generations\\v1' -&gt; 'C:\\Users\\29871\\AppData\\Local\\Temp\\pytest-of-29871\\pytest-97\\test_ui_cancel_cleanup_timeout0\\active'
+
+D:\python\Lib\pathlib.py:1386: OSError</failure></testcase><testcase classname="sim.tests.unit.buttons.test_button_dispatcher" name="test_status_file_is_valid_json" time="0.003"><failure message="OSError: [WinError 1314] 客户端没有所需的特权。: 'generations\\v1' -&gt; 'C:\\Users\\29871\\AppData\\Local\\Temp\\pytest-of-29871\\pytest-97\\test_status_file_is_valid_json0\\active'">tmp_path = WindowsPath('C:/Users/29871/AppData/Local/Temp/pytest-of-29871/pytest-97/test_status_file_is_valid_json0')
+
+    def test_status_file_is_valid_json(tmp_path: Path) -&gt; None:
+        """验证实时状态采用可原子替换的JSON结构。"""
+    
+&gt;       config = make_config(tmp_path)
+                 ^^^^^^^^^^^^^^^^^^^^^
+
+..\..\sim\tests\unit\buttons\test_button_dispatcher.py:279: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\..\sim\tests\unit\buttons\test_button_dispatcher.py:59: in make_config
+    (root / "active").symlink_to(Path("generations/v1"))
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = WindowsPath('C:/Users/29871/AppData/Local/Temp/pytest-of-29871/pytest-97/test_status_file_is_valid_json0/active')
+target = WindowsPath('generations/v1'), target_is_directory = False
+
+    def symlink_to(self, target, target_is_directory=False):
+        """
+        Make this path a symlink pointing to the target path.
+        Note the order of arguments (link, target) is the reverse of os.symlink.
+        """
+        if not hasattr(os, "symlink"):
+            raise NotImplementedError("os.symlink() not available on this system")
+&gt;       os.symlink(target, self, target_is_directory)
+E       OSError: [WinError 1314] 客户端没有所需的特权。: 'generations\\v1' -&gt; 'C:\\Users\\29871\\AppData\\Local\\Temp\\pytest-of-29871\\pytest-97\\test_status_file_is_valid_json0\\active'
+
+D:\python\Lib\pathlib.py:1386: OSError</failure></testcase><testcase classname="sim.tests.unit.cam.test_camera.CameraConfigTest" name="test_camera_frame_is_validated_and_read_only" time="0.001" /><testcase classname="sim.tests.unit.cam.test_camera.CameraConfigTest" name="test_default_profile_matches_camera_capability" time="0.000" /><testcase classname="sim.tests.unit.cam.test_camera.CameraConfigTest" name="test_invalid_config_values_are_rejected" time="0.002" /><testcase classname="sim.tests.unit.cam.test_camera.FFmpegCommandTest" name="test_capture_command_uses_v4l2_mjpeg_and_raw_bgr_output" time="0.000" /><testcase classname="sim.tests.unit.cam.test_camera.FFmpegCommandTest" name="test_pair_command_uses_one_input_and_two_synchronized_outputs" time="0.000" /><testcase classname="sim.tests.unit.cam.test_camera.FFmpegCommandTest" name="test_recorder_command_preserves_wall_time_and_uses_h264" time="0.000" /><testcase classname="sim.tests.unit.cam.test_camera.FFmpegCameraTest" name="test_camera_implements_public_protocol" time="0.000" /><testcase classname="sim.tests.unit.cam.test_camera.FFmpegCameraTest" name="test_direct_pipe_reads_preserve_frame_ownership_and_short_reads" time="0.005" /><testcase classname="sim.tests.unit.cam.test_camera.FFmpegCameraTest" name="test_focus_control_failure_never_starts_capture" time="0.001" /><testcase classname="sim.tests.unit.cam.test_camera.FFmpegCameraTest" name="test_latest_slot_overwrites_intermediate_frames" time="0.004" /><testcase classname="sim.tests.unit.cam.test_camera.FFmpegCameraTest" name="test_lifecycle_rejects_invalid_start_and_closes_once" time="0.002" /><testcase classname="sim.tests.unit.cam.test_camera.FFmpegCameraTest" name="test_manual_focus_is_enabled_in_separate_control_requests" time="0.001" /><testcase classname="sim.tests.unit.cam.test_camera.FFmpegCameraTest" name="test_partial_frame_failure_is_reported" time="0.002" /><testcase classname="sim.tests.unit.cam.test_camera.FFmpegCameraTest" name="test_process_exit_includes_stderr_diagnostics" time="0.004" /><testcase classname="sim.tests.unit.cam.test_camera.FFmpegCameraTest" name="test_short_reads_form_complete_independent_frames" time="0.002" /><testcase classname="sim.tests.unit.cam.test_camera.FFmpegCameraTest" name="test_spawn_failure_is_wrapped" time="0.001" /><testcase classname="sim.tests.unit.cam.test_camera.FFmpegCameraTest" name="test_startup_timeout_releases_process" time="0.038" /><testcase classname="sim.tests.unit.cam.test_camera.FFmpegCameraTest" name="test_waiting_for_new_frame_times_out" time="0.031" /><testcase classname="sim.tests.unit.cam.test_camera_cli_config.CameraCliConfigTest" name="test_detected_video_cli_overrides_environment_resolutions" time="0.005"><failure message="AssertionError: 1 != 0 : 实时检测录像失败：真实任务执行锁需要 Linux；Windows 请使用 ec-7020 离线工具">self = &lt;tests.unit.cam.test_camera_cli_config.CameraCliConfigTest testMethod=test_detected_video_cli_overrides_environment_resolutions&gt;
+
+    def test_detected_video_cli_overrides_environment_resolutions(self) -&gt; None:
+        """显式参数应覆盖相机、定位和 A4 环境配置。"""
+    
+        camera_info = Mock()
+        camera_info.to_dict.return_value = {}
+        summary = Mock()
+        summary.to_dict.return_value = {}
+        with (
+            patch.dict(
+                os.environ,
+                {"CAMERA_DEVICE_PATH": "/dev/video8"},
+                clear=False,
+            ),
+            patch.object(
+                detected_video_module,
+                "query_camera_info",
+                return_value=camera_info,
+            ) as query_camera_info,
+            patch.object(
+                detected_video_module,
+                "record_detection_video",
+                return_value=summary,
+            ) as record_video,
+        ):
+            result = CliRunner().invoke(
+                detected_video_module.app,
+                [
+                    "--device",
+                    "/dev/video9",
+                    "--width",
+                    "640",
+                    "--height",
+                    "480",
+                    "--workspace-detect-width",
+                    "320",
+                    "--workspace-detect-height",
+                    "240",
+                    "--a4-resize-width",
+                    "636",
+                    "--a4-resize-height",
+                    "450",
+                    "--no-preview",
+                ],
+            )
+    
+&gt;       self.assertEqual(result.exit_code, 0, result.output)
+E       AssertionError: 1 != 0 : 实时检测录像失败：真实任务执行锁需要 Linux；Windows 请使用 ec-7020 离线工具
+
+..\..\sim\tests\unit\cam\test_camera_cli_config.py:247: AssertionError</failure></testcase><testcase classname="sim.tests.unit.cam.test_camera_cli_config.CameraCliConfigTest" name="test_detected_video_explicit_task_overrides_env_selection" time="0.023" /><testcase classname="sim.tests.unit.cam.test_camera_cli_config.CameraCliConfigTest" name="test_detected_video_help_has_no_duration_option" time="0.077" /><testcase classname="sim.tests.unit.cam.test_camera_cli_config.CameraCliConfigTest" name="test_detected_video_matches_registered_task_configuration" time="0.047" /><testcase classname="sim.tests.unit.cam.test_camera_cli_config.CameraCliConfigTest" name="test_detected_video_reads_device_and_resolutions_from_environment" time="0.005"><failure message="AssertionError: 1 != 0 : 实时检测录像失败：真实任务执行锁需要 Linux；Windows 请使用 ec-7020 离线工具">self = &lt;tests.unit.cam.test_camera_cli_config.CameraCliConfigTest testMethod=test_detected_video_reads_device_and_resolutions_from_environment&gt;
+
+    def test_detected_video_reads_device_and_resolutions_from_environment(
+        self,
+    ) -&gt; None:
+        """检测录像脚本应从环境构造相机和 Resize 强类型配置。"""
+    
+        camera_info = Mock()
+        camera_info.to_dict.return_value = {}
+        summary = Mock()
+        summary.to_dict.return_value = {}
+        with (
+            patch.dict(
+                os.environ,
+                {
+                    "CAMERA_DEVICE_PATH": "/dev/video8",
+                    "CAMERA_WIDTH": "1280",
+                    "CAMERA_HEIGHT": "720",
+                    "WORKSPACE_DETECT_WIDTH": "640",
+                    "WORKSPACE_DETECT_HEIGHT": "360",
+                    "A4_RESIZE_WIDTH": "764",
+                    "A4_RESIZE_HEIGHT": "540",
+                    "DETECT1_PIECE_MODE": "1",
+                },
+                clear=False,
+            ),
+            patch.object(
+                detected_video_module,
+                "query_camera_info",
+                return_value=camera_info,
+            ) as query_camera_info,
+            patch.object(
+                detected_video_module,
+                "record_detection_video",
+                return_value=summary,
+            ) as record_video,
+        ):
+            result = CliRunner().invoke(
+                detected_video_module.app,
+                ["--no-preview"],
+            )
+    
+&gt;       self.assertEqual(result.exit_code, 0, result.output)
+E       AssertionError: 1 != 0 : 实时检测录像失败：真实任务执行锁需要 Linux；Windows 请使用 ec-7020 离线工具
+
+..\..\sim\tests\unit\cam\test_camera_cli_config.py:179: AssertionError</failure></testcase><testcase classname="sim.tests.unit.cam.test_camera_cli_config.CameraCliConfigTest" name="test_invalid_a4_ratio_fails_before_device_query" time="0.002"><failure message="AssertionError: '292:207' not found in '实时检测录像失败：真实任务执行锁需要 Linux；Windows 请使用 ec-7020 离线工具\n'">self = &lt;tests.unit.cam.test_camera_cli_config.CameraCliConfigTest testMethod=test_invalid_a4_ratio_fails_before_device_query&gt;
+
+    def test_invalid_a4_ratio_fails_before_device_query(self) -&gt; None:
+        """非法 A4 配置应在访问真实摄像头前失败。"""
+    
+        with patch.object(
+            detected_video_module,
+            "query_camera_info",
+        ) as query:
+            result = CliRunner().invoke(
+                detected_video_module.app,
+                [
+                    "--a4-resize-width",
+                    "800",
+                    "--a4-resize-height",
+                    "500",
+                    "--no-preview",
+                ],
+            )
+    
+        self.assertEqual(result.exit_code, 1)
+&gt;       self.assertIn("292:207", result.output)
+E       AssertionError: '292:207' not found in '实时检测录像失败：真实任务执行锁需要 Linux；Windows 请使用 ec-7020 离线工具\n'
+
+..\..\sim\tests\unit\cam\test_camera_cli_config.py:287: AssertionError</failure></testcase><testcase classname="sim.tests.unit.cam.test_camera_cli_config.CameraCliConfigTest" name="test_record_camera_reads_device_and_resolution_from_environment" time="0.003"><failure message="AssertionError: '\\dev\\video8' != '/dev/video8'&#10;- \dev\video8&#10;? ^   ^&#10;+ /dev/video8&#10;? ^   ^">self = &lt;tests.unit.cam.test_camera_cli_config.CameraCliConfigTest testMethod=test_record_camera_reads_device_and_resolution_from_environment&gt;
+
+    def test_record_camera_reads_device_and_resolution_from_environment(
+        self,
+    ) -&gt; None:
+        """普通录像脚本应把环境设备路径和宽高转换为强类型配置。"""
+    
+        summary = Mock()
+        summary.to_dict.return_value = {}
+        with (
+            patch.dict(
+                os.environ,
+                {
+                    "CAMERA_DEVICE_PATH": "/dev/video8",
+                    "CAMERA_WIDTH": "1280",
+                    "CAMERA_HEIGHT": "720",
+                },
+                clear=False,
+            ),
+            patch.object(
+                record_camera_module,
+                "record_camera",
+                return_value=summary,
+            ) as record_camera,
+        ):
+            result = CliRunner().invoke(record_camera_module.app, [])
+    
+        self.assertEqual(result.exit_code, 0, result.output)
+        config = record_camera.call_args.args[0]
+&gt;       self.assertEqual(str(config.device_path), "/dev/video8")
+E       AssertionError: '\\dev\\video8' != '/dev/video8'
+E       - \dev\video8
+E       ? ^   ^
+E       + /dev/video8
+E       ? ^   ^
+
+..\..\sim\tests\unit\cam\test_camera_cli_config.py:102: AssertionError</failure></testcase><testcase classname="sim.tests.unit.cam.test_live_detection.CameraInfoTest" name="test_parse_camera_info_extracts_active_profile" time="0.001" /><testcase classname="sim.tests.unit.cam.test_live_detection.CameraInfoTest" name="test_parse_camera_info_rejects_missing_profile" time="0.000" /><testcase classname="sim.tests.unit.cam.test_live_detection.CameraInfoTest" name="test_query_camera_info_reports_command_failure" time="0.001" /><testcase classname="sim.tests.unit.cam.test_live_detection.DrawingTest" name="test_detect1_failure_keeps_workspace_boundary" time="0.046" /><testcase classname="sim.tests.unit.cam.test_live_detection.DrawingTest" name="test_draws_workspace_and_mapped_piece_on_copy" time="0.006" /><testcase classname="sim.tests.unit.cam.test_live_detection.RecordingOrchestrationTest" name="test_ctrl_c_without_preview_safely_finishes_encoder" time="0.002" /><testcase classname="sim.tests.unit.cam.test_live_detection.RecordingOrchestrationTest" name="test_escape_style_preview_stop_writes_current_frame" time="0.002" /><testcase classname="sim.tests.unit.cam.test_live_detection.RecordingOrchestrationTest" name="test_output_paths_share_session_prefix" time="0.001" /><testcase classname="sim.tests.unit.cam.test_live_detection.RecordingOrchestrationTest" name="test_preview_without_recording_does_not_start_writer" time="0.002" /><testcase classname="sim.tests.unit.cam.test_live_detection.OpenCVPreviewTest" name="test_closed_window_requests_stop" time="0.002" /><testcase classname="sim.tests.unit.cam.test_live_detection.OpenCVPreviewTest" name="test_exit_button_click_requests_stop_without_mutating_frame" time="0.033" /><testcase classname="sim.tests.unit.cam.test_live_detection.OpenCVPreviewTest" name="test_q_does_not_stop_but_escape_stops" time="0.003" /><testcase classname="sim.tests.unit.cam.test_live_detection.AsyncPairRecorderTest" name="test_pending_pair_is_overwritten_and_latest_is_drained" time="0.001" /><testcase classname="sim.tests.unit.control.test_pl_candidate" name="test_batch_mapping_and_concave_reference[2-0]" time="0.004" /><testcase classname="sim.tests.unit.control.test_pl_candidate" name="test_batch_mapping_and_concave_reference[2-1]" time="0.003" /><testcase classname="sim.tests.unit.control.test_pl_candidate" name="test_batch_mapping_and_concave_reference[2-63]" time="0.007" /><testcase classname="sim.tests.unit.control.test_pl_candidate" name="test_batch_mapping_and_concave_reference[2-64]" time="0.006" /><testcase classname="sim.tests.unit.control.test_pl_candidate" name="test_batch_mapping_and_concave_reference[2-65]" time="0.006" /><testcase classname="sim.tests.unit.control.test_pl_candidate" name="test_batch_mapping_and_concave_reference[2-190]" time="0.018" /><testcase classname="sim.tests.unit.control.test_pl_candidate" name="test_batch_mapping_and_concave_reference[3-0]" time="0.002" /><testcase classname="sim.tests.unit.control.test_pl_candidate" name="test_batch_mapping_and_concave_reference[3-1]" time="0.001" /><testcase classname="sim.tests.unit.control.test_pl_candidate" name="test_batch_mapping_and_concave_reference[3-63]" time="0.008" /><testcase classname="sim.tests.unit.control.test_pl_candidate" name="test_batch_mapping_and_concave_reference[3-64]" time="0.009" /><testcase classname="sim.tests.unit.control.test_pl_candidate" name="test_batch_mapping_and_concave_reference[3-65]" time="0.010" /><testcase classname="sim.tests.unit.control.test_pl_candidate" name="test_batch_mapping_and_concave_reference[3-190]" time="0.024" /><testcase classname="sim.tests.unit.control.test_pl_candidate" name="test_batch_mapping_and_concave_reference[4-0]" time="0.001" /><testcase classname="sim.tests.unit.control.test_pl_candidate" name="test_batch_mapping_and_concave_reference[4-1]" time="0.001" /><testcase classname="sim.tests.unit.control.test_pl_candidate" name="test_batch_mapping_and_concave_reference[4-63]" time="0.013" /><testcase classname="sim.tests.unit.control.test_pl_candidate" name="test_batch_mapping_and_concave_reference[4-64]" time="0.013" /><testcase classname="sim.tests.unit.control.test_pl_candidate" name="test_batch_mapping_and_concave_reference[4-65]" time="0.013" /><testcase classname="sim.tests.unit.control.test_pl_candidate" name="test_batch_mapping_and_concave_reference[4-190]" time="0.037" /><testcase classname="sim.tests.unit.control.test_pl_candidate" name="test_error_poisoning[timeout]" time="0.009" /><testcase classname="sim.tests.unit.control.test_pl_candidate" name="test_error_poisoning[abi]" time="0.001" /><testcase classname="sim.tests.unit.control.test_pl_candidate" name="test_error_poisoning[id]" time="0.001" /><testcase classname="sim.tests.unit.control.test_pl_candidate" name="test_error_poisoning[status]" time="0.001" /><testcase classname="sim.tests.unit.control.test_pl_candidate" name="test_error_poisoning[nan]" time="0.001" /><testcase classname="sim.tests.unit.control.test_pl_candidate" name="test_error_poisoning[negative]" time="0.001" /><testcase classname="sim.tests.unit.control.test_pl_candidate" name="test_error_poisoning[padding]" time="0.001" /><testcase classname="sim.tests.unit.control.test_pl_candidate" name="test_invalid_and_unsupported_input" time="0.002" /><testcase classname="sim.tests.unit.control.test_pl_candidate" name="test_board_selects_candidate_core_only_for_random[fixed-False]" time="0.001" /><testcase classname="sim.tests.unit.control.test_pl_candidate" name="test_board_selects_candidate_core_only_for_random[random-True]" time="0.001" /><testcase classname="sim.tests.unit.control.test_pl_clearance" name="test_packing_winding_and_scan_sequence" time="0.027" /><testcase classname="sim.tests.unit.control.test_pl_clearance" name="test_fault_poisoning[timeout]" time="0.036" /><testcase classname="sim.tests.unit.control.test_pl_clearance" name="test_fault_poisoning[abi]" time="0.028" /><testcase classname="sim.tests.unit.control.test_pl_clearance" name="test_fault_poisoning[id]" time="0.027" /><testcase classname="sim.tests.unit.control.test_pl_clearance" name="test_fault_poisoning[status]" time="0.026" /><testcase classname="sim.tests.unit.control.test_pl_clearance" name="test_fault_poisoning[nan]" time="0.027" /><testcase classname="sim.tests.unit.control.test_pl_clearance" name="test_fault_poisoning[negative]" time="0.026" /><testcase classname="sim.tests.unit.control.test_pl_clearance" name="test_unsupported_and_invalid_geometry_never_touches_hardware" time="0.001" /><testcase classname="sim.tests.unit.control.test_pl_clearance" name="test_public_complete_plan_equality[fixed4]" time="0.239" /><testcase classname="sim.tests.unit.control.test_pl_clearance" name="test_public_complete_plan_equality[live]" time="0.291" /><testcase classname="sim.tests.unit.control.test_pl_clearance" name="test_public_complete_plan_equality[random2]" time="0.180" /><testcase classname="sim.tests.unit.control.test_pl_clearance" name="test_public_complete_plan_equality[random3]" time="0.233" /><testcase classname="sim.tests.unit.control.test_pl_clearance" name="test_public_complete_plan_equality[random4]" time="0.774" /><testcase classname="sim.tests.unit.control.test_pl_rigid" name="test_chunks_sequences_wrap_and_numeric_results" time="0.019" /><testcase classname="sim.tests.unit.control.test_pl_rigid" name="test_fault_disables_backend_and_never_reuses_output[timeout]" time="0.014" /><testcase classname="sim.tests.unit.control.test_pl_rigid" name="test_fault_disables_backend_and_never_reuses_output[abi]" time="0.001" /><testcase classname="sim.tests.unit.control.test_pl_rigid" name="test_fault_disables_backend_and_never_reuses_output[id]" time="0.001" /><testcase classname="sim.tests.unit.control.test_pl_rigid" name="test_fault_disables_backend_and_never_reuses_output[status]" time="0.001" /><testcase classname="sim.tests.unit.control.test_pl_rigid" name="test_fault_disables_backend_and_never_reuses_output[invalid]" time="0.001" /><testcase classname="sim.tests.unit.control.test_pl_rigid" name="test_fault_disables_backend_and_never_reuses_output[nan]" time="0.001" /><testcase classname="sim.tests.unit.control.test_pl_rigid" name="test_degenerate_is_explicit_cpu_numerical_fallback" time="0.001" /><testcase classname="sim.tests.unit.control.test_pl_rigid" name="test_invalid_input_rejected_before_any_hardware_access[nan]" time="0.000" /><testcase classname="sim.tests.unit.control.test_pl_rigid" name="test_invalid_input_rejected_before_any_hardware_access[shape]" time="0.000" /><testcase classname="sim.tests.unit.control.test_pl_rigid" name="test_invalid_input_rejected_before_any_hardware_access[count]" time="0.000" /><testcase classname="sim.tests.unit.control.test_pl_rigid" name="test_invalid_input_rejected_before_any_hardware_access[range]" time="0.000" /><testcase classname="sim.tests.unit.control.test_pl_rigid" name="test_invalid_input_rejected_before_any_hardware_access[weights]" time="0.000" /><testcase classname="sim.tests.unit.control.test_pl_rigid" name="test_invalid_input_rejected_before_any_hardware_access[ratio]" time="0.000" /><testcase classname="sim.tests.unit.control.test_pl_rigid" name="test_complete_fixed_and_random_plans_use_backend_and_match_cpu[fixed4]" time="0.231" /><testcase classname="sim.tests.unit.control.test_pl_rigid" name="test_complete_fixed_and_random_plans_use_backend_and_match_cpu[random2]" time="0.135" /><testcase classname="sim.tests.unit.control.test_pl_rigid" name="test_complete_fixed_and_random_plans_use_backend_and_match_cpu[random3]" time="0.259" /><testcase classname="sim.tests.unit.control.test_pl_rigid" name="test_complete_fixed_and_random_plans_use_backend_and_match_cpu[random4]" time="0.654" /><testcase classname="sim.tests.unit.control.test_pl_rigid" name="test_fixed_candidate_order_and_robust_estimators_with_noise[0.1]" time="0.229" /><testcase classname="sim.tests.unit.control.test_pl_rigid" name="test_fixed_candidate_order_and_robust_estimators_with_noise[0.7]" time="0.222" /><testcase classname="sim.tests.unit.control.test_pl_rigid" name="test_fixed_candidate_order_and_robust_estimators_with_noise[2.0]" time="0.277" /><testcase classname="sim.tests.unit.control.test_zynq_gate" name="test_public_adapter_identity" time="0.000" /><testcase classname="sim.tests.unit.control.test_zynq_gate" name="test_default_adapter_preserves_call_and_result" time="0.000" /><testcase classname="sim.tests.unit.control.test_zynq_gate" name="test_clearance_backend_is_lazy_cached_and_independent" time="0.000" /><testcase classname="sim.tests.unit.control.test_zynq_gate" name="test_random_uses_rigid_pl_but_never_four_convex_clearance" time="0.000" /><testcase classname="sim.tests.unit.control.test_zynq_gate" name="test_random_pl_requires_matching_hardware_configuration" time="0.000" /><testcase classname="sim.tests.unit.control.test_zynq_gate" name="test_explicit_clearance_backend_overrides_environment" time="0.000" /><testcase classname="sim.tests.unit.motion.test_controller.AxisPlanningTest" name="test_half_pulse_uses_round_half_up" time="0.001" /><testcase classname="sim.tests.unit.motion.test_controller.AxisPlanningTest" name="test_negative_directions_are_reversed" time="0.000" /><testcase classname="sim.tests.unit.motion.test_controller.AxisPlanningTest" name="test_positive_xyz_matches_calibrated_mechanical_directions" time="0.000" /><testcase classname="sim.tests.unit.motion.test_controller.AxisPlanningTest" name="test_power_axis_x_expands_to_two_addresses" time="0.000" /><testcase classname="sim.tests.unit.motion.test_controller.AxisPlanningTest" name="test_zero_move_is_no_op_and_boundaries_are_rejected" time="0.002" /><testcase classname="sim.tests.unit.motion.test_controller.AxisExecutionTest" name="test_3200_pulse_timeout_matches_firmware" time="0.000" /><testcase classname="sim.tests.unit.motion.test_controller.AxisExecutionTest" name="test_enable_disable_and_stop_wait_for_each_address" time="0.001" /><testcase classname="sim.tests.unit.motion.test_controller.AxisExecutionTest" name="test_runtime_relative_move_rejects_xy_and_keeps_z" time="0.001" /><testcase classname="sim.tests.unit.motion.test_external_cli.MotionExternalCliTest" name="test_control_cli_defaults_to_open_and_send" time="0.005" /><testcase classname="sim.tests.unit.motion.test_external_cli.MotionExternalCliTest" name="test_control_default_move_is_safe_no_op" time="0.003" /><testcase classname="sim.tests.unit.motion.test_external_cli.MotionExternalCliTest" name="test_control_move_and_enable_support_explicit_dry_run" time="0.005" /><testcase classname="sim.tests.unit.motion.test_external_cli.MotionExternalCliTest" name="test_control_reply_failure_only_closes_serial" time="0.002" /><testcase classname="sim.tests.unit.motion.test_external_cli.MotionExternalCliTest" name="test_control_xy_real_path_matches_c_lifecycle" time="0.002" /><testcase classname="sim.tests.unit.motion.test_external_cli.MotionExternalCliTest" name="test_help_does_not_require_serial_device" time="0.020" /><testcase classname="sim.tests.unit.motion.test_external_cli.MotionExternalCliTest" name="test_replay_cli_defaults_to_real_execution" time="0.002" /><testcase classname="sim.tests.unit.motion.test_external_cli.MotionExternalCliTest" name="test_replay_explicit_dry_run_emits_expected_frames" time="0.002" /><testcase classname="sim.tests.unit.motion.test_external_cli.MotionExternalCliTest" name="test_replay_reply_failure_only_closes_serial" time="0.001" /><testcase classname="sim.tests.unit.motion.test_external_cli.MotionExternalCliTest" name="test_timestamp_reporter_flushes_all_events" time="0.001" /><testcase classname="sim.tests.unit.motion.test_foc_rotation.F32CDirectedMotionTest" name="test_360_is_a_real_turn_in_each_direction" time="0.001" /><testcase classname="sim.tests.unit.motion.test_foc_rotation.F32CDirectedMotionTest" name="test_clockwise_installation_sign_reverses_protocol_target" time="0.001" /><testcase classname="sim.tests.unit.motion.test_foc_rotation.F32CDirectedMotionTest" name="test_invalid_target_is_rejected_but_start_feedback_error_is_ignored" time="0.002" /><testcase classname="sim.tests.unit.motion.test_foc_rotation.F32CDirectedMotionTest" name="test_large_target_does_not_choose_shortest_path" time="0.000" /><testcase classname="sim.tests.unit.motion.test_foc_rotation.F32CDirectedMotionTest" name="test_post_move_mechanical_feedback_error_is_ignored" time="0.001" /><testcase classname="sim.tests.unit.motion.test_foc_rotation.F32CDirectedMotionTest" name="test_zero_and_small_target_keep_directed_semantics" time="0.000" /><testcase classname="sim.tests.unit.motion.test_foc_rotation.FocRotationConfigTest" name="test_defaults_target_verified_uart3" time="0.000" /><testcase classname="sim.tests.unit.motion.test_foc_rotation.FocRotationConfigTest" name="test_environment_overrides_are_typed" time="0.000" /><testcase classname="sim.tests.unit.motion.test_foc_rotation.FocRotationConfigTest" name="test_invalid_environment_is_rejected_before_hardware" time="0.001" /><testcase classname="sim.tests.unit.motion.test_foc_rotation.FocRotationAxisTest" name="test_open_failure_closes_with_disable" time="0.000" /><testcase classname="sim.tests.unit.motion.test_foc_rotation.FocRotationAxisTest" name="test_open_motion_and_close_delegate_to_verified_motor" time="0.000" /><testcase classname="sim.tests.unit.motion.test_foc_rotation_cli.FocRotationCliTest" name="test_angle_command_passes_cli_configuration" time="0.001" /><testcase classname="sim.tests.unit.motion.test_foc_rotation_cli.FocRotationCliTest" name="test_core_zero_and_angle_are_exclusive_and_close_axis" time="0.000" /><testcase classname="sim.tests.unit.motion.test_foc_rotation_cli.FocRotationCliTest" name="test_help_does_not_run_motion" time="0.008" /><testcase classname="sim.tests.unit.motion.test_protocol.Servo42CEncodingTest" name="test_e3_enable_and_90_degree_frames_match_firmware" time="0.000" /><testcase classname="sim.tests.unit.motion.test_protocol.Servo42CEncodingTest" name="test_invalid_speed_pulses_and_address_are_rejected" time="0.000" /><testcase classname="sim.tests.unit.motion.test_protocol.Servo42CEncodingTest" name="test_simple_commands_append_checksum" time="0.000" /><testcase classname="sim.tests.unit.motion.test_protocol.Servo42CParserTest" name="test_fragmented_and_consecutive_replies_are_emitted" time="0.000" /><testcase classname="sim.tests.unit.motion.test_protocol.Servo42CParserTest" name="test_noise_and_bad_checksum_resynchronize_one_byte_at_a_time" time="0.000" /><testcase classname="sim.tests.unit.motion.test_protocol.Servo42CParserTest" name="test_reset_discards_partial_frame_but_keeps_diagnostics" time="0.000" /><testcase classname="sim.tests.unit.motion.test_protocol.Servo42CParserTest" name="test_unknown_addresses_are_ignored" time="0.000" /><testcase classname="sim.tests.unit.motion.test_repeat_x_move.RepeatXMoveTest" name="test_dry_run_lists_absolute_targets_without_serial" time="0.001" /><testcase classname="sim.tests.unit.motion.test_repeat_x_move.RepeatXMoveTest" name="test_real_path_initializes_once_and_uses_absolute_state" time="0.002" /><testcase classname="sim.tests.unit.motion.test_serial_packets.SerialPacketTests" name="test_fragmented_servo_reply" time="0.000" /><testcase classname="sim.tests.unit.motion.test_serial_packets.SerialPacketTests" name="test_invalid_motion_parameters" time="0.001" /><testcase classname="sim.tests.unit.motion.test_serial_packets.SerialPacketTests" name="test_total_angle_feedback" time="0.000" /><testcase classname="sim.tests.unit.motion.test_serial_packets.SerialPacketTests" name="test_wire_vectors_and_routes" time="0.000" /><testcase classname="sim.tests.unit.motion.test_serial_transport" name="test_config" time="0.000" /><testcase classname="sim.tests.unit.motion.test_serial_transport.MotionSerialConfigTest" name="test_defaults_match_mks_uart" time="0.001" /><testcase classname="sim.tests.unit.motion.test_serial_transport.MotionSerialConfigTest" name="test_invalid_values_are_rejected" time="0.001" /><testcase classname="sim.tests.unit.motion.test_serial_transport.Servo42CSerialTest" name="test_construction_is_side_effect_free_and_close_is_idempotent" time="0.001" /><testcase classname="sim.tests.unit.motion.test_serial_transport.Servo42CSerialTest" name="test_context_closes_port_when_body_raises" time="0.001" /><testcase classname="sim.tests.unit.motion.test_serial_transport.Servo42CSerialTest" name="test_enable_waits_for_success_reply" time="0.000" /><testcase classname="sim.tests.unit.motion.test_serial_transport.Servo42CSerialTest" name="test_move_waits_for_started_then_completed" time="0.000" /><testcase classname="sim.tests.unit.motion.test_serial_transport.Servo42CSerialTest" name="test_partial_writes_are_retried_until_frame_is_complete" time="0.000" /><testcase classname="sim.tests.unit.motion.test_serial_transport.Servo42CSerialTest" name="test_rejected_unexpected_and_timeout_replies_raise" time="0.006" /><testcase classname="sim.tests.unit.motion.test_serial_transport.Servo42CSerialTest" name="test_send_before_open_is_rejected" time="0.000" /><testcase classname="sim.tests.unit.motion.test_serial_transport.Servo42CSerialTest" name="test_take_and_discard_replies_match_c_nonblocking_queue" time="0.000" /><testcase classname="sim.tests.unit.motion.test_serial_transport.Servo42CSerialTest" name="test_wait_for_address_preserves_other_replies" time="0.001" /><testcase classname="sim.tests.unit.motion.test_serial_transport.Servo42CSerialTest" name="test_write_observer_receives_nanosecond_timestamps_and_delta" time="0.000" /><testcase classname="sim.tests.unit.motion.test_xy_controller.MksXYNoReplyTest" name="test_absolute_xy_sends_x_pair_and_y_back_to_back" time="0.000" /><testcase classname="sim.tests.unit.motion.test_xy_controller.MksXYNoReplyTest" name="test_assume_origin_clears_fault_and_restarts_power_wait" time="0.000" /><testcase classname="sim.tests.unit.motion.test_xy_controller.MksXYNoReplyTest" name="test_configured_speed_reaches_frames_and_completion_deadline" time="0.000" /><testcase classname="sim.tests.unit.motion.test_xy_controller.MksXYNoReplyTest" name="test_emergency_stop_stops_disables_and_invalidates_position" time="0.000" /><testcase classname="sim.tests.unit.motion.test_xy_controller.MksXYNoReplyTest" name="test_expected_time_and_fault_timeout_are_separate" time="0.000" /><testcase classname="sim.tests.unit.motion.test_xy_controller.MksXYNoReplyTest" name="test_invalid_speed_rejected_before_any_output" time="0.000" /><testcase classname="sim.tests.unit.motion.test_xy_controller.MksXYNoReplyTest" name="test_mm_conversion_requires_c_public_api_precision" time="0.000" /><testcase classname="sim.tests.unit.motion.test_xy_controller.MksXYNoReplyTest" name="test_power_wait_enables_all_xy_without_waiting_replies" time="0.000" /><testcase classname="sim.tests.unit.motion.test_xy_controller.MksXYNoReplyTest" name="test_reset_request_queues_during_move_and_returns_to_origin" time="0.000" /><testcase classname="sim.tests.unit.motion.test_xy_controller.MksXYNoReplyTest" name="test_result_codes_match_not_ready_busy_and_range_rules" time="0.000" /><testcase classname="sim.tests.unit.motion.test_xy_controller.MksXYReplyModeTest" name="test_enable_sequence_and_direct_complete_reply_match_c" time="0.000" /><testcase classname="sim.tests.unit.tasks.test_continuous_review" name="test_requires_six_distinct_frames_and_two_seconds" time="0.009" /><testcase classname="sim.tests.unit.tasks.test_continuous_review" name="test_failure_restarts_time_and_does_not_accept_historical_frames[move]" time="0.006" /><testcase classname="sim.tests.unit.tasks.test_continuous_review" name="test_failure_restarts_time_and_does_not_accept_historical_frames[drop]" time="0.004" /><testcase classname="sim.tests.unit.tasks.test_continuous_review" name="test_failure_restarts_time_and_does_not_accept_historical_frames[workspace]" time="0.005" /><testcase classname="sim.tests.unit.tasks.test_continuous_review" name="test_anchor_rejects_slow_accumulated_drift" time="0.001" /><testcase classname="sim.tests.unit.tasks.test_continuous_review" name="test_duplicate_and_backwards_time_rejected" time="0.000" /><testcase classname="sim.tests.unit.tasks.test_execution_lock" name="test_second_owner_is_rejected_until_first_releases" time="0.002"><failure message="RuntimeError: 真实任务执行锁需要 Linux；Windows 请使用 ec-7020 离线工具">tmp_path = WindowsPath('C:/Users/29871/AppData/Local/Temp/pytest-of-29871/pytest-97/test_second_owner_is_rejected_0')
+
+    def test_second_owner_is_rejected_until_first_releases(tmp_path: Path) -&gt; None:
+        """验证忙时立即拒绝，原持有者释放后可以重新申请。"""
+    
+        lock_path = tmp_path / "runtime" / "task.lock"
+        first = TaskExecutionLock(lock_path)
+        second = TaskExecutionLock(lock_path)
+    
+&gt;       first.acquire()
+
+..\..\sim\tests\unit\tasks\test_execution_lock.py:19: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;ec_26_e.tasks.execution_lock.TaskExecutionLock object at 0x0000025FFFEEB7A0&gt;
+
+    def acquire(self) -&gt; None:
+        """非阻塞申请全局锁，忙碌时返回明确异常。"""
+    
+        if fcntl is None:
+&gt;           raise RuntimeError("真实任务执行锁需要 Linux；Windows 请使用 ec-7020 离线工具")
+E           RuntimeError: 真实任务执行锁需要 Linux；Windows 请使用 ec-7020 离线工具
+
+src\ec_26_e\tasks\execution_lock.py:38: RuntimeError</failure></testcase><testcase classname="sim.tests.unit.tasks.test_execution_lock" name="test_context_manager_releases_after_exception" time="0.001"><failure message="AssertionError: Regex pattern did not match.&#10;  Expected regex: '模拟任务失败'&#10;  Actual message: '真实任务执行锁需要 Linux；Windows 请使用 ec-7020 离线工具'">tmp_path = WindowsPath('C:/Users/29871/AppData/Local/Temp/pytest-of-29871/pytest-97/test_context_manager_releases_0')
+
+    def test_context_manager_releases_after_exception(tmp_path: Path) -&gt; None:
+        """验证任务异常离开上下文后不会留下永久忙碌状态。"""
+    
+        lock_path = tmp_path / "task.lock"
+&gt;       with pytest.raises(RuntimeError, match="模拟任务失败"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AssertionError: Regex pattern did not match.
+E         Expected regex: '模拟任务失败'
+E         Actual message: '真实任务执行锁需要 Linux；Windows 请使用 ec-7020 离线工具'
+
+..\..\sim\tests\unit\tasks\test_execution_lock.py:32: AssertionError</failure></testcase><testcase classname="sim.tests.unit.tasks.test_task1_actuation.MovePlanActuatorTest" name="test_calibration_override_is_applied_before_limit_validation" time="0.001" /><testcase classname="sim.tests.unit.tasks.test_task1_actuation.MovePlanActuatorTest" name="test_completion_signal_keeps_z_raised_and_lights_pin33_one_second" time="0.003" /><testcase classname="sim.tests.unit.tasks.test_task1_actuation.MovePlanActuatorTest" name="test_default_calibration_converts_a4_coordinates_to_motor_space" time="0.000" /><testcase classname="sim.tests.unit.tasks.test_task1_actuation.MovePlanActuatorTest" name="test_execution_failure_demagnetizes_stops_and_disables" time="0.001" /><testcase classname="sim.tests.unit.tasks.test_task1_actuation.MovePlanActuatorTest" name="test_final_descent_failure_or_cancel_never_finishes_or_retries" time="0.004" /><testcase classname="sim.tests.unit.tasks.test_task1_actuation.MovePlanActuatorTest" name="test_final_return_deviation_does_not_abort_finished_placement" time="0.002" /><testcase classname="sim.tests.unit.tasks.test_task1_actuation.MovePlanActuatorTest" name="test_final_return_overlaps_xy_and_waits_before_lowering_z" time="0.015" /><testcase classname="sim.tests.unit.tasks.test_task1_actuation.MovePlanActuatorTest" name="test_final_rotation_failure_stops_parallel_xy_without_lowering_z" time="0.002" /><testcase classname="sim.tests.unit.tasks.test_task1_actuation.MovePlanActuatorTest" name="test_full_turn_rotation_is_preserved_without_normalization" time="0.000" /><testcase classname="sim.tests.unit.tasks.test_task1_actuation.MovePlanActuatorTest" name="test_in_motion_single_turn_deviation_does_not_abort_placement" time="0.001" /><testcase classname="sim.tests.unit.tasks.test_task1_actuation.MovePlanActuatorTest" name="test_invalid_rotation_is_rejected_before_hardware" time="0.001" /><testcase classname="sim.tests.unit.tasks.test_task1_actuation.MovePlanActuatorTest" name="test_invalid_zero_feedback_prevents_first_pick" time="0.002" /><testcase classname="sim.tests.unit.tasks.test_task1_actuation.MovePlanActuatorTest" name="test_large_z_transition_is_split_without_reply_waits" time="0.002" /><testcase classname="sim.tests.unit.tasks.test_task1_actuation.MovePlanActuatorTest" name="test_next_pick_allows_two_degree_zero_error_after_task_started" time="0.006" /><testcase classname="sim.tests.unit.tasks.test_task1_actuation.MovePlanActuatorTest" name="test_next_pick_rejects_more_than_two_degree_or_invalid_zero_feedback" time="0.003" /><testcase classname="sim.tests.unit.tasks.test_task1_actuation.MovePlanActuatorTest" name="test_next_pick_xy_overlaps_return_and_pickup_waits_for_both" time="0.004" /><testcase classname="sim.tests.unit.tasks.test_task1_actuation.MovePlanActuatorTest" name="test_normal_path_finishes_before_disabling_and_exits" time="0.002" /><testcase classname="sim.tests.unit.tasks.test_task1_actuation.MovePlanActuatorTest" name="test_place_descent_disconnects_magnet_without_extra_wait" time="0.002" /><testcase classname="sim.tests.unit.tasks.test_task1_actuation.MovePlanActuatorTest" name="test_preflight_failure_never_constructs_hardware" time="0.000" /><testcase classname="sim.tests.unit.tasks.test_task1_actuation.MovePlanActuatorTest" name="test_return_failure_or_cancel_stops_without_signalling_completion" time="0.003" /><testcase classname="sim.tests.unit.tasks.test_task1_actuation.MovePlanActuatorTest" name="test_return_handles_zero_distance_and_single_axis" time="0.004" /><testcase classname="sim.tests.unit.tasks.test_task1_actuation.MovePlanActuatorTest" name="test_return_timeout_prevents_next_pickup_after_preposition" time="0.001" /><testcase classname="sim.tests.unit.tasks.test_task1_actuation.MovePlanActuatorTest" name="test_returns_to_start_after_release_before_completion_and_disable" time="0.015" /><testcase classname="sim.tests.unit.tasks.test_task1_actuation.MovePlanActuatorTest" name="test_rotation_failure_uses_emergency_cleanup" time="0.001" /><testcase classname="sim.tests.unit.tasks.test_task1_actuation.MovePlanActuatorTest" name="test_rotation_feedback_timeout_interrupts_plan" time="0.001" /><testcase classname="sim.tests.unit.tasks.test_task1_actuation.MovePlanActuatorTest" name="test_rotation_initial_feedback_timeout_prevents_xyz_motion" time="0.000" /><testcase classname="sim.tests.unit.tasks.test_task1_actuation.MovePlanActuatorTest" name="test_rotation_protocol_feedback_error_interrupts_plan" time="0.001" /><testcase classname="sim.tests.unit.tasks.test_task1_actuation.MovePlanActuatorTest" name="test_shutdown_failure_preserves_finish_state" time="0.002" /><testcase classname="sim.tests.unit.tasks.test_task1_actuation.MovePlanActuatorTest" name="test_speed_change_preserves_commands_coordinates_and_z_speed" time="0.003" /><testcase classname="sim.tests.unit.tasks.test_task1_actuation.MovePlanActuatorTest" name="test_start_outside_software_limits_is_rejected_before_hardware" time="0.001" /><testcase classname="sim.tests.unit.tasks.test_task1_actuation.MovePlanActuatorTest" name="test_startup_returns_counterclockwise_from_current_angle_before_pick" time="0.002" /><testcase classname="sim.tests.unit.tasks.test_task1_actuation.MovePlanActuatorTest" name="test_xy_wait_uses_longest_axis_plus_fixed_value" time="0.001" /><testcase classname="sim.tests.unit.tasks.test_task1_contracts.Task1ContractTest" name="test_options_reject_invalid_and_impossible_values" time="0.001" /><testcase classname="sim.tests.unit.tasks.test_task1_contracts.Task1ContractTest" name="test_public_exports_and_defaults" time="0.000" /><testcase classname="sim.tests.unit.tasks.test_task1_contracts.Task1VisualReviewTest" name="test_clockwise_and_counterclockwise_coordinate_mapping" time="0.001" /><testcase classname="sim.tests.unit.tasks.test_task1_contracts.Task1VisualReviewTest" name="test_confidence_does_not_change_control_input" time="0.001" /><testcase classname="sim.tests.unit.tasks.test_task1_contracts.Task1VisualReviewTest" name="test_rejects_mismatched_coordinate_system_and_duplicate_ids" time="0.001" /><testcase classname="sim.tests.unit.tasks.test_task1_contracts.Task1VisualReviewTest" name="test_rejects_unordered_repeated_and_self_intersecting_polygons" time="0.010" /><testcase classname="sim.tests.unit.tasks.test_task1_runner.Task1RunnerTest" name="test_fatal_camera_error_propagates_and_closes" time="0.001" /><testcase classname="sim.tests.unit.tasks.test_task1_runner.Task1RunnerTest" name="test_fixed_task_rejects_single_frame_when_stabilizer_is_empty" time="1.999" /><testcase classname="sim.tests.unit.tasks.test_task1_runner.Task1RunnerTest" name="test_invalid_observer_is_rejected_before_camera_start" time="0.001" /><testcase classname="sim.tests.unit.tasks.test_task1_runner.Task1RunnerTest" name="test_observer_cancellation_skips_planner_and_closes_resources" time="0.001" /><testcase classname="sim.tests.unit.tasks.test_task1_runner.Task1RunnerTest" name="test_observer_receives_failures_and_detections_then_closes" time="0.003" /><testcase classname="sim.tests.unit.tasks.test_task1_runner.Task1RunnerTest" name="test_planning_error_propagates_after_camera_close" time="0.002" /><testcase classname="sim.tests.unit.tasks.test_task1_runner.Task1RunnerTest" name="test_success_closes_camera_before_single_planner_call" time="0.002" /><testcase classname="sim.tests.unit.tasks.test_task1_runner.Task1RunnerTest" name="test_task1_has_no_file_side_effect" time="0.003" /><testcase classname="sim.tests.unit.tasks.test_task1_runner.Task1RunnerTest" name="test_timeout_never_uses_last_reviewed_frame_for_planning" time="0.018" /><testcase classname="sim.tests.unit.tasks.test_task1_runner.Task1RunnerTest" name="test_total_timeout_contains_review_diagnostics_and_closes" time="0.013" /><testcase classname="sim.tests.unit.tasks.test_task1_runner.Task1RunnerTest" name="test_two_visual_failures_are_tolerated" time="0.004" /><testcase classname="sim.tests.unit.tasks.test_task1_stability.StableSceneReviewerTest" name="test_fixed_mode_requires_exactly_four_cycle_tracks" time="0.002" /><testcase classname="sim.tests.unit.tasks.test_task1_stability.StableSceneReviewerTest" name="test_geometry_matching_medoid_and_transient_piece_filtering" time="0.012" /><testcase classname="sim.tests.unit.tasks.test_task1_stability.StableSceneReviewerTest" name="test_piece_missing_frame_uses_own_jump_allowance" time="0.002" /><testcase classname="sim.tests.unit.tasks.test_task1_stability.StableSceneReviewerTest" name="test_processing_failures_consume_every_object_allowance" time="0.001" /><testcase classname="sim.tests.unit.tasks.test_task1_stability.StableSceneReviewerTest" name="test_random_mode_selects_stable_tracks_before_confidence" time="0.003" /><testcase classname="sim.tests.unit.tasks.test_task1_stability.StableSceneReviewerTest" name="test_six_workspace_jumps_reject_and_next_cycle_restarts" time="0.001" /><testcase classname="sim.tests.unit.tasks.test_task1_stability.StableSceneReviewerTest" name="test_workspace_uses_previous_accepted_frame_in_a4_mm" time="0.002" /><testcase classname="sim.tests.unit.test_axu5ev_autostart.AutostartBootTests" name="test_network_selection_uses_controller_identity" time="0.017" /><testcase classname="sim.tests.unit.test_axu5ev_autostart.AutostartBootTests" name="test_preserves_original_fallback_and_gates_candidate" time="0.001" /><testcase classname="sim.tests.unit.test_axu5ev_autostart.AutostartBootTests" name="test_rejects_corruption_and_truncation" time="0.001" /><testcase classname="sim.tests.unit.test_axu5ev_loader" name="test_register_read_uses_repeated_start" time="0.004" /><testcase classname="sim.tests.unit.test_axu5ev_loader" name="test_register_read_propagates_bus_failure" time="0.001" /><testcase classname="sim.tests.unit.test_axu5ev_menu" name="test_axu5ev_defaults_never_export_old_gpio_or_require_pl" time="0.000" /><testcase classname="sim.tests.unit.test_axu5ev_menu" name="test_invalid_new_board_config_fails_before_hardware_access[extra0]" time="0.000" /><testcase classname="sim.tests.unit.test_axu5ev_menu" name="test_invalid_new_board_config_fails_before_hardware_access[extra1]" time="0.000" /><testcase classname="sim.tests.unit.test_axu5ev_menu" name="test_invalid_new_board_config_fails_before_hardware_access[extra2]" time="0.000" /><testcase classname="sim.tests.unit.test_axu5ev_menu" name="test_invalid_new_board_config_fails_before_hardware_access[extra3]" time="0.000" /><testcase classname="sim.tests.unit.test_axu5ev_menu" name="test_preview_reads_same_profile_as_menu" time="0.013" /><testcase classname="sim.tests.unit.test_axu5ev_menu" name="test_missing_explicit_profile_does_not_fall_back_to_old_board" time="0.002" /><testcase classname="sim.tests.unit.test_axu5ev_menu" name="test_plan_only_dispatch_cannot_launch_motor_entry" time="0.003" /><testcase classname="sim.tests.unit.test_axu5ev_menu" name="test_plan_only_model_can_solve_without_motion_authorization" time="0.000" /><testcase classname="sim.tests.unit.test_axu5ev_menu" name="test_motion_enabled_model_waits_for_user_confirm" time="0.000" /><testcase classname="sim.tests.unit.test_axu5ev_menu" name="test_authorized_axu5ev_dispatch_only_uses_m0[/dev/ec26e-m0-bridge]" time="0.003" /><testcase classname="sim.tests.unit.test_axu5ev_menu" name="test_authorized_axu5ev_dispatch_only_uses_m0[None]" time="0.003" /><testcase classname="sim.tests.unit.test_axu5ev_menu" name="test_axu5ev_motion_rejects_unconfirmed_calibration" time="0.000" /><testcase classname="sim.tests.unit.test_axu5ev_menu" name="test_live_plan_writes_truth_and_never_constructs_actuator[False]" time="0.022" /><testcase classname="sim.tests.unit.test_axu5ev_menu" name="test_live_plan_writes_truth_and_never_constructs_actuator[True]" time="0.015" /><testcase classname="sim.tests.unit.test_board_menu" name="test_camera_pipe_preserves_complete_ppm_across_short_reads" time="0.000" /><testcase classname="sim.tests.unit.test_board_menu" name="test_camera_pipe_does_not_publish_truncated_frame" time="0.000" /><testcase classname="sim.tests.unit.test_board_menu" name="test_warm_camera_ack_is_not_a_frame" time="0.000" /><testcase classname="sim.tests.unit.test_board_menu" name="test_preview_worker_error_reaches_menu_without_becoming_image[error0-2-\u8bbe\u5907\u6b63\u7531\u5176\u4ed6\u4efb\u52a1\u6216\u7ef4\u62a4\u5360\u7528]" time="0.001" /><testcase classname="sim.tests.unit.test_board_menu" name="test_preview_worker_error_reaches_menu_without_becoming_image[error1-1-\u6444\u50cf\u5934\u8fde\u7eed 3 \u79d2\u6ca1\u6709\u65b0\u5e27]" time="0.002" /><testcase classname="sim.tests.unit.test_board_menu" name="test_preview_rejects_unbounded_error_and_normal_close_is_not_usb_failure" time="0.000" /><testcase classname="sim.tests.unit.test_board_menu" name="test_menu_updates_changed_text_and_keeps_button_polling" time="0.001" /><testcase classname="sim.tests.unit.test_boot_bundle" name="test_prepare_preserves_kernel_bootargs_ps_and_reservations" time="0.009" /><testcase classname="sim.tests.unit.test_boot_bundle" name="test_usb_phy_candidate_resolves_lane_from_base_tree" time="0.002" /><testcase classname="sim.tests.unit.test_boot_bundle" name="test_prepare_rejects_unverifiable_image[checksum]" time="0.001" /><testcase classname="sim.tests.unit.test_boot_bundle" name="test_prepare_rejects_unverifiable_image[signature]" time="0.001" /><testcase classname="sim.tests.unit.test_boot_bundle" name="test_prepare_rejects_unverifiable_image[external]" time="0.001" /><testcase classname="sim.tests.unit.test_calibration.CalibrationConfigurationTest" name="test_initialize_preserves_values_and_exposes_all_template_fields" time="0.003"><failure message="AttributeError: 'NoneType' object has no attribute 'flock'">self = &lt;tests.unit.test_calibration.CalibrationConfigurationTest testMethod=test_initialize_preserves_values_and_exposes_all_template_fields&gt;
+
+    def test_initialize_preserves_values_and_exposes_all_template_fields(
+        self,
+    ) -&gt; None:
+        """首次初始化应保留现场值并补齐模板中的全部可调参数。"""
+    
+        with TemporaryDirectory() as directory:
+&gt;           paths = self._initialize(directory)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+..\..\sim\tests\unit\test_calibration.py:59: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\..\sim\tests\unit\test_calibration.py:44: in _initialize
+    initialize_calibration(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+paths = CalibrationPaths(root=WindowsPath('C:/Users/29871/AppData/Local/Temp/tmp8rkx7wtk/calibration'))
+source_env = WindowsPath('C:/Users/29871/AppData/Local/Temp/tmp8rkx7wtk/source.env')
+env_template = WindowsPath('D:/FPGA/puzzle5ev_submission/src/ps/.env.example')
+source_task1 = WindowsPath('D:/FPGA/puzzle5ev_submission/src/ps/configs/tasks/task1.json')
+source_task2 = WindowsPath('D:/FPGA/puzzle5ev_submission/src/ps/configs/tasks/task2.json')
+
+    def initialize_calibration(
+        paths: CalibrationPaths,
+        *,
+        source_env: Path,
+        env_template: Path,
+        source_task1: Path,
+        source_task2: Path,
+    ) -&gt; None:
+        """首次从仓库现场值和完整模板建立可编辑、可回退配置。"""
+    
+        paths.root.mkdir(parents=True, exist_ok=True)
+        paths.generations_directory.mkdir(parents=True, exist_ok=True)
+        with paths.lock_file.open("a+", encoding="utf-8") as lock:
+&gt;           fcntl.flock(lock.fileno(), fcntl.LOCK_EX)
+            ^^^^^^^^^^^
+E           AttributeError: 'NoneType' object has no attribute 'flock'
+
+src\ec_26_e\config\calibration.py:287: AttributeError</failure></testcase><testcase classname="sim.tests.unit.test_calibration.CalibrationConfigurationTest" name="test_invalid_draft_cannot_replace_active_generation" time="0.002"><failure message="AttributeError: 'NoneType' object has no attribute 'flock'">self = &lt;tests.unit.test_calibration.CalibrationConfigurationTest testMethod=test_invalid_draft_cannot_replace_active_generation&gt;
+
+    def test_invalid_draft_cannot_replace_active_generation(self) -&gt; None:
+        """损坏 JSON 应使发布失败且 active 保持原版本。"""
+    
+        with TemporaryDirectory() as directory:
+&gt;           paths = self._initialize(directory)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+..\..\sim\tests\unit\test_calibration.py:111: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\..\sim\tests\unit\test_calibration.py:44: in _initialize
+    initialize_calibration(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+paths = CalibrationPaths(root=WindowsPath('C:/Users/29871/AppData/Local/Temp/tmpw4kddsls/calibration'))
+source_env = WindowsPath('C:/Users/29871/AppData/Local/Temp/tmpw4kddsls/source.env')
+env_template = WindowsPath('D:/FPGA/puzzle5ev_submission/src/ps/.env.example')
+source_task1 = WindowsPath('D:/FPGA/puzzle5ev_submission/src/ps/configs/tasks/task1.json')
+source_task2 = WindowsPath('D:/FPGA/puzzle5ev_submission/src/ps/configs/tasks/task2.json')
+
+    def initialize_calibration(
+        paths: CalibrationPaths,
+        *,
+        source_env: Path,
+        env_template: Path,
+        source_task1: Path,
+        source_task2: Path,
+    ) -&gt; None:
+        """首次从仓库现场值和完整模板建立可编辑、可回退配置。"""
+    
+        paths.root.mkdir(parents=True, exist_ok=True)
+        paths.generations_directory.mkdir(parents=True, exist_ok=True)
+        with paths.lock_file.open("a+", encoding="utf-8") as lock:
+&gt;           fcntl.flock(lock.fileno(), fcntl.LOCK_EX)
+            ^^^^^^^^^^^
+E           AttributeError: 'NoneType' object has no attribute 'flock'
+
+src\ec_26_e\config\calibration.py:287: AttributeError</failure></testcase><testcase classname="sim.tests.unit.test_calibration.CalibrationConfigurationTest" name="test_preview_command_uses_active_task_without_recording" time="0.003"><failure message="AttributeError: 'NoneType' object has no attribute 'flock'">self = &lt;tests.unit.test_calibration.CalibrationConfigurationTest testMethod=test_preview_command_uses_active_task_without_recording&gt;
+
+    def test_preview_command_uses_active_task_without_recording(self) -&gt; None:
+        """桌面快速预览必须读取 active JSON 且明确关闭录像。"""
+    
+        with TemporaryDirectory() as directory:
+&gt;           paths = self._initialize(directory)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+..\..\sim\tests\unit\test_calibration.py:124: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\..\sim\tests\unit\test_calibration.py:44: in _initialize
+    initialize_calibration(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+paths = CalibrationPaths(root=WindowsPath('C:/Users/29871/AppData/Local/Temp/tmprho41g31/calibration'))
+source_env = WindowsPath('C:/Users/29871/AppData/Local/Temp/tmprho41g31/source.env')
+env_template = WindowsPath('D:/FPGA/puzzle5ev_submission/src/ps/.env.example')
+source_task1 = WindowsPath('D:/FPGA/puzzle5ev_submission/src/ps/configs/tasks/task1.json')
+source_task2 = WindowsPath('D:/FPGA/puzzle5ev_submission/src/ps/configs/tasks/task2.json')
+
+    def initialize_calibration(
+        paths: CalibrationPaths,
+        *,
+        source_env: Path,
+        env_template: Path,
+        source_task1: Path,
+        source_task2: Path,
+    ) -&gt; None:
+        """首次从仓库现场值和完整模板建立可编辑、可回退配置。"""
+    
+        paths.root.mkdir(parents=True, exist_ok=True)
+        paths.generations_directory.mkdir(parents=True, exist_ok=True)
+        with paths.lock_file.open("a+", encoding="utf-8") as lock:
+&gt;           fcntl.flock(lock.fileno(), fcntl.LOCK_EX)
+            ^^^^^^^^^^^
+E           AttributeError: 'NoneType' object has no attribute 'flock'
+
+src\ec_26_e\config\calibration.py:287: AttributeError</failure></testcase><testcase classname="sim.tests.unit.test_calibration.CalibrationConfigurationTest" name="test_publish_switches_whole_generation_and_restore_updates_draft" time="0.002"><failure message="AttributeError: 'NoneType' object has no attribute 'flock'">self = &lt;tests.unit.test_calibration.CalibrationConfigurationTest testMethod=test_publish_switches_whole_generation_and_restore_updates_draft&gt;
+
+    def test_publish_switches_whole_generation_and_restore_updates_draft(
+        self,
+    ) -&gt; None:
+        """发布应原子切换整套配置，恢复后草稿应同步到上一版。"""
+    
+        with TemporaryDirectory() as directory:
+&gt;           paths = self._initialize(directory)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+..\..\sim\tests\unit\test_calibration.py:80: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\..\sim\tests\unit\test_calibration.py:44: in _initialize
+    initialize_calibration(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+paths = CalibrationPaths(root=WindowsPath('C:/Users/29871/AppData/Local/Temp/tmpl6hop40q/calibration'))
+source_env = WindowsPath('C:/Users/29871/AppData/Local/Temp/tmpl6hop40q/source.env')
+env_template = WindowsPath('D:/FPGA/puzzle5ev_submission/src/ps/.env.example')
+source_task1 = WindowsPath('D:/FPGA/puzzle5ev_submission/src/ps/configs/tasks/task1.json')
+source_task2 = WindowsPath('D:/FPGA/puzzle5ev_submission/src/ps/configs/tasks/task2.json')
+
+    def initialize_calibration(
+        paths: CalibrationPaths,
+        *,
+        source_env: Path,
+        env_template: Path,
+        source_task1: Path,
+        source_task2: Path,
+    ) -&gt; None:
+        """首次从仓库现场值和完整模板建立可编辑、可回退配置。"""
+    
+        paths.root.mkdir(parents=True, exist_ok=True)
+        paths.generations_directory.mkdir(parents=True, exist_ok=True)
+        with paths.lock_file.open("a+", encoding="utf-8") as lock:
+&gt;           fcntl.flock(lock.fileno(), fcntl.LOCK_EX)
+            ^^^^^^^^^^^
+E           AttributeError: 'NoneType' object has no attribute 'flock'
+
+src\ec_26_e\config\calibration.py:287: AttributeError</failure></testcase><testcase classname="sim.tests.unit.test_calibration_console" name="test_editor_command_forces_independent_kate_window" time="0.001" /><testcase classname="sim.tests.unit.test_calibration_console" name="test_editor_command_falls_back_to_next_available_editor" time="0.001" /><testcase classname="sim.tests.unit.test_calibration_console" name="test_editor_command_rejects_missing_editors" time="0.001" /><testcase classname="sim.tests.unit.test_calibration_console" name="test_external_gui_environment_removes_opencv_qt_paths" time="0.000" /><testcase classname="sim.tests.unit.test_calibration_console" name="test_dispatcher_stop_command_only_signals_service_main_process" time="0.000" /><testcase classname="sim.tests.unit.test_calibration_console" name="test_dispatcher_start_command_enables_and_starts_service" time="0.000" /><testcase classname="sim.tests.unit.test_calibration_console" name="test_dispatcher_service_is_active_interprets_systemctl_status" time="0.000" /><testcase classname="sim.tests.unit.test_calibration_console" name="test_active_task_from_status_handles_valid_and_broken_files" time="0.025" /><testcase classname="sim.tests.unit.test_calibration_console" name="test_read_task_output_returns_latest_content_and_handles_missing_file" time="0.015" /><testcase classname="sim.tests.unit.test_candidate_autostart" name="test_legacy_and_explicit_selection" time="0.041" /><testcase classname="sim.tests.unit.test_candidate_hardware_selection" name="test_selection_does_not_change_running_hardware_and_restores_prior_files[False]" time="0.094" /><testcase classname="sim.tests.unit.test_candidate_hardware_selection" name="test_selection_does_not_change_running_hardware_and_restores_prior_files[True]" time="0.048" /><testcase classname="sim.tests.unit.test_candidate_hardware_selection" name="test_busy_and_later_manual_changes_are_preserved" time="0.062" /><testcase classname="sim.tests.unit.test_capture_settings" name="test_speed_configuration_cannot_overwrite_vision_and_fixed_patch_is_scoped" time="0.013" /><testcase classname="sim.tests.unit.test_capture_settings" name="test_board_speed_and_focus_settings_reach_runtime_objects" time="0.000" /><testcase classname="sim.tests.unit.test_command_cli.CommandCliTest" name="test_draw_setting_is_passed_through_global_context" time="0.003" /><testcase classname="sim.tests.unit.test_command_cli.CommandCliTest" name="test_env_option_only_changes_environment_source" time="0.002" /><testcase classname="sim.tests.unit.test_command_cli.CommandCliTest" name="test_expected_task_failure_exits_one" time="0.002" /><testcase classname="sim.tests.unit.test_command_cli.CommandCliTest" name="test_explicit_task_selection_is_forwarded_without_other_overrides" time="0.002" /><testcase classname="sim.tests.unit.test_command_cli.CommandCliTest" name="test_help_has_no_side_effect_and_no_task_subcommand" time="0.008" /><testcase classname="sim.tests.unit.test_command_cli.CommandCliTest" name="test_keyboard_interrupt_exits_130" time="0.002" /><testcase classname="sim.tests.unit.test_command_cli.CommandCliTest" name="test_no_arguments_runs_env_selected_task" time="0.002" /><testcase classname="sim.tests.unit.test_command_cli.CommandCliTest" name="test_preview_cancellation_exits_130" time="0.002" /><testcase classname="sim.tests.unit.test_command_cli.CommandCliTest" name="test_retryable_task_failure_uses_temporary_exit_code" time="0.004" /><testcase classname="sim.tests.unit.test_command_cli.CommandCliTest" name="test_selection_or_json_failures_exit_two_before_run" time="0.006" /><testcase classname="sim.tests.unit.test_command_registry.TaskRegistryTest" name="test_builds_read_only_registry_and_rejects_duplicates" time="0.001" /><testcase classname="sim.tests.unit.test_command_registry.TaskRegistryTest" name="test_load_uses_runtime_snapshot_and_checks_actual_type" time="0.001" /><testcase classname="sim.tests.unit.test_command_registry.TaskRegistryTest" name="test_rejects_invalid_name_and_function_signatures" time="0.001" /><testcase classname="sim.tests.unit.test_command_registry.TaskRegistryTest" name="test_run_preserves_cancellation_and_wraps_draw_failures" time="0.001" /><testcase classname="sim.tests.unit.test_command_registry.TaskRegistryTest" name="test_run_wraps_only_declared_errors_and_checks_result" time="0.001" /><testcase classname="sim.tests.unit.test_command_registry.TaskRegistryTest" name="test_task1_registration_is_complete" time="0.000" /><testcase classname="sim.tests.unit.test_command_registry.TaskRegistryTest" name="test_unknown_task_is_rejected_before_config_loading" time="0.000" /><testcase classname="sim.tests.unit.test_config.EnvFileTest" name="test_exported_environment_takes_priority" time="0.015" /><testcase classname="sim.tests.unit.test_config.EnvFileTest" name="test_invalid_line_is_rejected" time="0.006" /><testcase classname="sim.tests.unit.test_config.EnvFileTest" name="test_loads_camera_and_a4_resolutions" time="0.005" /><testcase classname="sim.tests.unit.test_draw.DrawingTest" name="test_failure_draws_stage_without_modifying_source" time="0.023" /><testcase classname="sim.tests.unit.test_draw.DrawingTest" name="test_live_result_draws_workspace_pieces_and_labels_on_copy" time="0.022" /><testcase classname="sim.tests.unit.test_draw.DrawingTest" name="test_style_scales_with_resolution_with_bounded_values" time="0.016" /><testcase classname="sim.tests.unit.test_draw.OpenCVPreviewTest" name="test_default_uses_board_display_and_escape_or_close_stops" time="0.003" /><testcase classname="sim.tests.unit.test_draw.OpenCVPreviewTest" name="test_gui_errors_become_draw_error" time="0.002" /><testcase classname="sim.tests.unit.test_draw.OpenCVPreviewTest" name="test_missing_or_unreachable_display_fails_before_qt" time="0.002" /><testcase classname="sim.tests.unit.test_draw.Task1DrawObserverTest" name="test_observer_forwards_annotated_copy_and_stop_signal" time="0.002" /><testcase classname="sim.tests.unit.test_gui_controller" name="test_all_modes_override_piece_count_and_use_correct_task" time="0.016" /><testcase classname="sim.tests.unit.test_gui_controller" name="test_auto_count_environment_is_random_only" time="0.002" /><testcase classname="sim.tests.unit.test_gui_controller" name="test_preview_and_task_cannot_overlap_dma_or_reuse_ids" time="0.026" /><testcase classname="sim.tests.unit.test_gui_controller" name="test_camera_lease_does_not_stop_live_preview" time="0.000" /><testcase classname="sim.tests.unit.test_gui_controller" name="test_demo_preview_has_contours_and_never_starts_motor" time="0.055" /><testcase classname="sim.tests.unit.test_gui_controller" name="test_busy_task_blocks_mode_change_close_and_duplicate_start" time="0.000" /><testcase classname="sim.tests.unit.test_gui_controller" name="test_preview_only_blocks_motor_start" time="0.000" /><testcase classname="sim.tests.unit.test_gui_controller" name="test_selected_task_uses_live_camera_and_shared_pl_without_reloading[\u56fa\u5b9a\u56db\u7247]" time="0.002" /><testcase classname="sim.tests.unit.test_gui_controller" name="test_selected_task_uses_live_camera_and_shared_pl_without_reloading[\u968f\u673a\u62fc\u56fe]" time="0.002" /><testcase classname="sim.tests.unit.test_gui_controller" name="test_preview_failure_before_actuation_blocks_motor_constructor" time="0.002" /><testcase classname="sim.tests.unit.test_gui_controller" name="test_task_observer_publishes_frames_without_duplicate_preview_and_resumes" time="0.261" /><testcase classname="sim.tests.unit.test_m0_bridge" name="test_construction_and_invalid_plan_never_open" time="0.000" /><testcase classname="sim.tests.unit.test_m0_bridge" name="test_open_and_initial_magnet_off_only_query_status" time="0.014" /><testcase classname="sim.tests.unit.test_m0_bridge" name="test_two_channels_preserve_streams_single_arm_and_owner_close" time="0.001" /><testcase classname="sim.tests.unit.test_m0_bridge" name="test_unsafe_initial_status_never_arms[armed-True]" time="0.001" /><testcase classname="sim.tests.unit.test_m0_bridge" name="test_unsafe_initial_status_never_arms[magnet-True]" time="0.000" /><testcase classname="sim.tests.unit.test_m0_bridge" name="test_unsafe_initial_status_never_arms[fault-2]" time="0.001" /><testcase classname="sim.tests.unit.test_m0_bridge" name="test_unsafe_initial_status_never_arms[version-2]" time="0.000" /><testcase classname="sim.tests.unit.test_m0_bridge" name="test_latched_fault_is_recorded_without_clearing_or_arming" time="0.001" /><testcase classname="sim.tests.unit.test_m0_bridge" name="test_failed_diagnostic_does_not_mask_original_status" time="0.001" /><testcase classname="sim.tests.unit.test_m0_bridge" name="test_old_client_without_diagnostic_api_keeps_original_rejection" time="0.001" /><testcase classname="sim.tests.unit.test_m0_bridge" name="test_data_failure_is_terminal_and_never_retried[False]" time="0.001" /><testcase classname="sim.tests.unit.test_m0_bridge" name="test_data_failure_is_terminal_and_never_retried[True]" time="0.002" /><testcase classname="sim.tests.unit.test_m0_bridge" name="test_heartbeat_failure_propagates_before_next_output" time="0.207" /><testcase classname="sim.tests.unit.test_m0_bridge" name="test_shared_transport_and_f32c_connection" time="0.001" /><testcase classname="sim.tests.unit.test_m0_bridge" name="test_config_m0_requires_no_gpio_and_rejects_bad_backend" time="0.000" /><testcase classname="sim.tests.unit.test_magnet_alias" name="test_gpio_alias_resolved_and_requested_low[True]" time="0.001" /><testcase classname="sim.tests.unit.test_magnet_alias" name="test_gpio_alias_resolved_and_requested_low[False]" time="0.001" /><testcase classname="sim.tests.unit.test_menu_model" name="test_mode_cycle_and_confirm_motion_guard" time="0.000" /><testcase classname="sim.tests.unit.test_menu_model" name="test_cancel_waits_for_task_cleanup_and_keeps_menu_available" time="0.001" /><testcase classname="sim.tests.unit.test_menu_model" name="test_buttons_ignore_boot_hold_bounce_and_long_hold" time="0.000" /><testcase classname="sim.tests.unit.test_menu_model" name="test_simultaneous_confirm_never_starts_task_and_cancel_wins" time="0.000" /><testcase classname="sim.tests.unit.test_menu_model" name="test_formal_task_rejects_wrong_hardware_or_unverified_machine[pl0-True-\u9884\u89c8\u786c\u4ef6]" time="0.001" /><testcase classname="sim.tests.unit.test_menu_model" name="test_formal_task_rejects_wrong_hardware_or_unverified_machine[pl1-False-\u63a5\u7ebf\u548c\u6807\u5b9a]" time="0.001" /><testcase classname="sim.tests.unit.test_menu_model" name="test_formal_random_task_dispatch_preserves_addressed_motor_project_entry" time="0.001" /><testcase classname="sim.tests.unit.test_menu_model" name="test_imported_profile_can_start_with_loader_motion_authorization_false" time="0.002" /><testcase classname="sim.tests.unit.test_menu_model" name="test_missing_solver_blocks_process_before_any_motor_access" time="0.001" /><testcase classname="sim.tests.unit.test_plan_preview" name="test_preview_projection_is_inverse_of_execution_coordinates[clockwise]" time="0.001" /><testcase classname="sim.tests.unit.test_plan_preview" name="test_preview_projection_is_inverse_of_execution_coordinates[counterclockwise]" time="0.001" /><testcase classname="sim.tests.unit.test_plan_preview" name="test_prediction_requires_this_tasks_snapshot_and_failure_invalidates" time="0.052" /><testcase classname="sim.tests.unit.test_plan_preview" name="test_early_camera_image_is_not_a_stable_plan_snapshot" time="0.015" /><testcase classname="sim.tests.unit.test_plan_preview" name="test_menu_refreshes_acquiring_images_by_sequence_and_rejects_old_token" time="0.067" /><testcase classname="sim.tests.unit.test_plan_preview" name="test_preview_hides_old_contours_after_motion_or_age" time="0.001" /><testcase classname="sim.tests.unit.test_plan_preview" name="test_preview_tolerates_small_uniform_exposure_change_but_not_local_motion" time="0.001" /><testcase classname="sim.tests.unit.test_plan_preview" name="test_prediction_history_is_bounded_without_deleting_unrelated_files" time="0.131" /><testcase classname="sim.tests.unit.test_plan_preview" name="test_cancel_during_camera_release_cannot_dispatch_queued_start" time="0.000" /><testcase classname="sim.tests.unit.test_preview_server" name="test_worker_reuses_imports_but_releases_hardware_between_requests" time="0.020" /><testcase classname="sim.tests.unit.test_preview_server" name="test_initial_ready_is_not_a_hardware_release_ack" time="0.000" /><testcase classname="sim.tests.unit.test_preview_server" name="test_error_packet_still_allows_release_ack_and_next_preview_frame" time="0.000" /><testcase classname="sim.tests.unit.test_preview_server" name="test_stop_keeps_idle_process_for_next_start" time="0.001" /><testcase classname="sim.tests.unit.test_preview_tracking" name="test_small_jitter_is_damped_without_mutating_observation" time="0.001" /><testcase classname="sim.tests.unit.test_preview_tracking" name="test_reordered_vertices_and_components_keep_their_display_identity" time="0.001" /><testcase classname="sim.tests.unit.test_preview_tracking" name="test_real_motion_invalid_detection_and_topology_change_reset_smoothing" time="0.001" /><testcase classname="sim.tests.unit.test_production_preview" name="test_failed_count_keeps_all_five_candidates_visible" time="0.001" /><testcase classname="sim.tests.unit.test_production_preview" name="test_workspace_failure_does_not_show_stale_candidates" time="0.000" /><testcase classname="sim.tests.unit.test_runtime_config.RuntimeConfigTest" name="test_contract_is_frozen_and_environment_is_read_only" time="0.001" /><testcase classname="sim.tests.unit.test_runtime_config.RuntimeConfigTest" name="test_draw_enabled_accepts_strict_boolean_spellings" time="0.001" /><testcase classname="sim.tests.unit.test_runtime_config.RuntimeConfigTest" name="test_env_can_explicitly_choose_task_json" time="0.011" /><testcase classname="sim.tests.unit.test_runtime_config.RuntimeConfigTest" name="test_env_selects_task_and_derives_json_path" time="0.016" /><testcase classname="sim.tests.unit.test_runtime_config.RuntimeConfigTest" name="test_explicit_task_and_json_override_only_selection" time="0.015" /><testcase classname="sim.tests.unit.test_runtime_config.RuntimeConfigTest" name="test_exported_draw_setting_wins_over_env_file" time="0.011" /><testcase classname="sim.tests.unit.test_runtime_config.RuntimeConfigTest" name="test_exported_environment_wins_without_mutation" time="0.009" /><testcase classname="sim.tests.unit.test_runtime_config.RuntimeConfigTest" name="test_invalid_draw_setting_is_rejected" time="0.001" /><testcase classname="sim.tests.unit.test_runtime_config.RuntimeConfigTest" name="test_missing_or_invalid_selection_is_rejected" time="0.001" /><testcase classname="sim.tests.unit.test_shared_preprocess_config" name="test_mode_parameters_are_bound_to_each_lease" time="0.000" /><testcase classname="sim.tests.unit.test_speed_release" name="test_install_preserves_calibration_and_motion_then_restores_exact_config" time="0.203" /><testcase classname="sim.tests.unit.test_speed_release" name="test_install_failure_restores_old_packages_and_configuration" time="0.076" /><testcase classname="sim.tests.unit.test_tangram" name="test_white_seven_piece_detection_and_complete_plan_never_constructs_actuator" time="0.417" /><testcase classname="sim.tests.unit.test_tangram" name="test_unverified_motion_rejected_before_opening_camera" time="0.003" /><testcase classname="sim.tests.unit.test_tangram" name="test_verified_motion_receives_validated_plan_after_camera_release" time="0.422" /><testcase classname="sim.tests.unit.test_tangram" name="test_bad_image_returns_no_partial_detection[missing]" time="0.013" /><testcase classname="sim.tests.unit.test_tangram" name="test_bad_image_returns_no_partial_detection[extra]" time="0.012" /><testcase classname="sim.tests.unit.test_tangram" name="test_bad_image_returns_no_partial_detection[touching]" time="0.012" /><testcase classname="sim.tests.unit.test_tangram" name="test_cancellation_releases_camera_and_never_constructs_motor" time="0.004" /><testcase classname="sim.tests.unit.test_tangram" name="test_menu_dispatches_unverified_tangram_as_plan_only_even_with_old_motion_permission" time="0.004" /><testcase classname="sim.tests.unit.test_tangram" name="test_config_rejects_unknown_or_nonboolean_authorization" time="0.004" /><testcase classname="sim.tests.unit.test_tangram" name="test_verified_menu_dispatches_manual_motion_using_existing_bridge" time="0.004" /><testcase classname="sim.tests.unit.test_tangram" name="test_tangram_ignores_inherited_pl_backend_without_requiring_bitstream" time="0.002" /><testcase classname="sim.tests.unit.test_tangram" name="test_multi_frame_review_is_opt_in" time="0.753" /><testcase classname="sim.tests.unit.test_tangram" name="test_invalid_single_frame_does_not_retry_capture_or_open_motor" time="0.025" /><testcase classname="sim.tests.unit.test_tangram" name="test_single_frame_robustness_preserves_seven_shapes_and_measured_edges[clean-synthetic]" time="0.157" /><testcase classname="sim.tests.unit.test_tangram" name="test_single_frame_robustness_preserves_seven_shapes_and_measured_edges[clean-real]" time="0.152" /><testcase classname="sim.tests.unit.test_tangram" name="test_single_frame_robustness_preserves_seven_shapes_and_measured_edges[dim-synthetic]" time="0.154" /><testcase classname="sim.tests.unit.test_tangram" name="test_single_frame_robustness_preserves_seven_shapes_and_measured_edges[dim-real]" time="0.150" /><testcase classname="sim.tests.unit.test_tangram" name="test_single_frame_robustness_preserves_seven_shapes_and_measured_edges[shadow-synthetic]" time="0.217" /><testcase classname="sim.tests.unit.test_tangram" name="test_single_frame_robustness_preserves_seven_shapes_and_measured_edges[shadow-real]" time="0.169" /><testcase classname="sim.tests.unit.test_tangram" name="test_single_frame_robustness_preserves_seven_shapes_and_measured_edges[warm-synthetic]" time="0.168" /><testcase classname="sim.tests.unit.test_tangram" name="test_single_frame_robustness_preserves_seven_shapes_and_measured_edges[warm-real]" time="0.134" /><testcase classname="sim.tests.unit.test_tangram" name="test_single_frame_robustness_preserves_seven_shapes_and_measured_edges[cool-synthetic]" time="0.142" /><testcase classname="sim.tests.unit.test_tangram" name="test_single_frame_robustness_preserves_seven_shapes_and_measured_edges[cool-real]" time="0.119" /><testcase classname="sim.tests.unit.test_tangram" name="test_single_frame_robustness_preserves_seven_shapes_and_measured_edges[desaturated-synthetic]" time="0.150" /><testcase classname="sim.tests.unit.test_tangram" name="test_single_frame_robustness_preserves_seven_shapes_and_measured_edges[desaturated-real]" time="0.125" /><testcase classname="sim.tests.unit.test_tangram" name="test_single_frame_robustness_preserves_seven_shapes_and_measured_edges[noise-synthetic]" time="0.153" /><testcase classname="sim.tests.unit.test_tangram" name="test_single_frame_robustness_preserves_seven_shapes_and_measured_edges[noise-real]" time="0.134" /><testcase classname="sim.tests.unit.test_tangram" name="test_single_frame_robustness_preserves_seven_shapes_and_measured_edges[glare-synthetic]" time="0.185" /><testcase classname="sim.tests.unit.test_tangram" name="test_single_frame_robustness_preserves_seven_shapes_and_measured_edges[glare-real]" time="0.161" /><testcase classname="sim.tests.unit.test_tangram" name="test_single_frame_robustness_preserves_seven_shapes_and_measured_edges[blur_jpeg-synthetic]" time="0.163" /><testcase classname="sim.tests.unit.test_tangram" name="test_single_frame_robustness_preserves_seven_shapes_and_measured_edges[blur_jpeg-real]" time="0.125" /><testcase classname="sim.tests.unit.test_tangram" name="test_robust_segmentation_never_turns_invalid_scene_into_motion[missing]" time="0.063" /><testcase classname="sim.tests.unit.test_tangram" name="test_robust_segmentation_never_turns_invalid_scene_into_motion[extra]" time="0.061" /><testcase classname="sim.tests.unit.test_tangram" name="test_robust_segmentation_never_turns_invalid_scene_into_motion[touching]" time="0.063" /><testcase classname="sim.tests.unit.test_tangram" name="test_robust_segmentation_never_turns_invalid_scene_into_motion[occluded]" time="0.068" /><testcase classname="sim.tests.unit.test_tangram" name="test_robust_segmentation_never_turns_invalid_scene_into_motion[no_blue]" time="0.022" /><testcase classname="sim.tests.unit.test_tangram" name="test_robust_segmentation_never_turns_invalid_scene_into_motion[empty]" time="0.023" /><testcase classname="sim.tests.unit.test_tangram" name="test_white_pieces_on_cyan_and_deep_blue_background[background0]" time="0.087" /><testcase classname="sim.tests.unit.test_tangram" name="test_white_pieces_on_cyan_and_deep_blue_background[background1]" time="0.084" /><testcase classname="sim.tests.unit.test_tangram" name="test_production_preview_uses_same_adaptive_segmentation_as_task" time="0.096" /><testcase classname="sim.tests.unit.test_tangram" name="test_saved_photo_recognition_plans_every_pattern_inside_machine_limits[square]" time="0.337" /><testcase classname="sim.tests.unit.test_tangram" name="test_saved_photo_recognition_plans_every_pattern_inside_machine_limits[cat]" time="0.186" /><testcase classname="sim.tests.unit.test_tangram" name="test_saved_photo_recognition_plans_every_pattern_inside_machine_limits[rabbit]" time="0.191" /><testcase classname="sim.tests.unit.test_tangram" name="test_saved_photo_recognition_plans_every_pattern_inside_machine_limits[fish]" time="0.247" /><testcase classname="sim.tests.unit.test_tangram" name="test_saved_photo_recognition_plans_every_pattern_inside_machine_limits[boat]" time="0.300" /><testcase classname="sim.tests.unit.test_tangram" name="test_saved_photo_recognition_plans_every_pattern_inside_machine_limits[house]" time="0.392" /><testcase classname="sim.tests.unit.test_tangram" name="test_saved_photo_recognition_plans_every_pattern_inside_machine_limits[dog]" time="0.204" /><testcase classname="sim.tests.unit.test_tangram" name="test_saved_photo_recognition_plans_every_pattern_inside_machine_limits[swan]" time="0.271" /><testcase classname="sim.tests.unit.test_tangram" name="test_saved_photo_recognition_plans_every_pattern_inside_machine_limits[bird]" time="0.205" /><testcase classname="sim.tests.unit.test_tangram" name="test_saved_photo_recognition_plans_every_pattern_inside_machine_limits[penguin]" time="0.201" /><testcase classname="sim.tests.unit.test_tangram" name="test_saved_photo_recognition_plans_every_pattern_inside_machine_limits[seal]" time="0.305" /><testcase classname="sim.tests.unit.test_tangram" name="test_saved_photo_recognition_plans_every_pattern_inside_machine_limits[chair]" time="0.249" /><testcase classname="sim.tests.unit.test_task1_config" name="test_env" time="0.000" /><testcase classname="sim.tests.unit.test_task1_config.Task1ConfigContractTest" name="test_json_configures_edge_thresholds" time="0.023" /><testcase classname="sim.tests.unit.test_task1_config.Task1ConfigContractTest" name="test_json_execution_confidence_threshold_overrides_default" time="0.018" /><testcase classname="sim.tests.unit.test_task1_config.Task1ConfigContractTest" name="test_missing_sections_use_code_defaults" time="0.017" /><testcase classname="sim.tests.unit.test_task1_config.Task1ConfigContractTest" name="test_official_json_is_complete_fixed_configuration" time="0.001"><failure message="AssertionError: 8.0 != 20.0">self = &lt;tests.unit.test_task1_config.Task1ConfigContractTest testMethod=test_official_json_is_complete_fixed_configuration&gt;
+
+    def test_official_json_is_complete_fixed_configuration(self) -&gt; None:
+        """仓库正式 JSON 应加载为 fixed、2 mm 和运动配置。"""
+    
+        raw = json.loads(
+            DEFAULT_TASK1_CONFIG_PATH.read_text(encoding="utf-8")
+        )
+        config = load_task1_config(environ=TEST_ENV, env_path=None)
+    
+        self.assertEqual(
+            set(raw),
+            {
+                "schema_version",
+                "task",
+                "resize",
+                "detect1",
+                "planning",
+            },
+        )
+        self.assertEqual(raw["schema_version"], 3)
+        self.assertEqual(len(raw["task"]), 8)
+        self.assertEqual(len(raw["resize"]), 3)
+        self.assertEqual(len(raw["detect1"]), 13)
+        self.assertEqual(len(raw["planning"]), 5)
+        self.assertIsInstance(config, Task1Config)
+        self.assertEqual(config.options.planning_options.mode, "fixed")
+        self.assertEqual(
+            config.options.planning_options.noise_bound_mm,
+            2.0,
+        )
+        self.assertEqual(
+            config.options.planning_options.minimum_execution_confidence,
+            0.0,
+        )
+        self.assertEqual(config.options.minimum_stable_frames, 5)
+        self.assertEqual(config.options.review_cycle_seconds, 2.0)
+        self.assertEqual(config.options.allowed_jump_frames, 5)
+        self.assertEqual(
+            config.options.workspace_corner_distance_tolerance_mm,
+            2.5,
+        )
+        self.assertEqual(
+            config.resize.reference_corners_relative,
+            (
+                (0.1375, 0.065),
+                (0.778, 0.078),
+                (0.771, 0.87),
+                (0.1375, 0.844),
+            ),
+        )
+        self.assertEqual(config.resize.search_band_ratio, 0.14)
+        self.assertEqual(config.detect1.piece_mode, 2)
+&gt;       self.assertEqual(config.detect1.short_edge_merge_mm, 20.0)
+E       AssertionError: 8.0 != 20.0
+
+..\..\sim\tests\unit\test_task1_config.py:175: AssertionError</failure></testcase><testcase classname="sim.tests.unit.test_task1_config.Task1ConfigContractTest" name="test_public_exports_and_frozen_contracts" time="0.000" /><testcase classname="sim.tests.unit.test_task1_config.Task1ConfigSourceTest" name="test_a4_origin_environment_overrides_default_calibration" time="0.003" /><testcase classname="sim.tests.unit.test_task1_config.Task1ConfigSourceTest" name="test_all_machine_environment_fields_are_typed" time="0.004" /><testcase classname="sim.tests.unit.test_task1_config.Task1ConfigSourceTest" name="test_exported_environment_overrides_env_without_mutation" time="0.022" /><testcase classname="sim.tests.unit.test_task1_config.Task1ConfigSourceTest" name="test_invalid_environment_values_fail_strictly" time="0.008" /><testcase classname="sim.tests.unit.test_task1_config.Task1ConfigSourceTest" name="test_magnet_gpio_line_is_required" time="0.002" /><testcase classname="sim.tests.unit.test_task1_config.Task1JsonStrictnessTest" name="test_missing_file_and_non_file_path_are_rejected" time="0.001" /><testcase classname="sim.tests.unit.test_task1_config.Task1JsonStrictnessTest" name="test_string_numbers_booleans_and_invalid_points_are_rejected" time="0.106" /><testcase classname="sim.tests.unit.test_task1_config.Task1JsonStrictnessTest" name="test_top_level_version_duplicates_and_nonfinite_are_rejected" time="0.131" /><testcase classname="sim.tests.unit.test_task1_config.Task1JsonStrictnessTest" name="test_unknown_fields_and_non_object_sections_are_rejected" time="0.084" /><testcase classname="sim.tests.unit.test_task1_config.Task1AggregateValidationTest" name="test_detect_resolution_must_fit_and_match_camera" time="0.007" /><testcase classname="sim.tests.unit.test_task1_config.Task1AggregateValidationTest" name="test_fixed_mode_requires_four_pieces_and_four_to_five_vertices" time="0.041" /><testcase classname="sim.tests.unit.test_task1_config.Task1AggregateValidationTest" name="test_task1_rejects_random_mode" time="0.016" /><testcase classname="sim.tests.unit.test_task2_config.Task2ConfigTest" name="test_card_preprocessing_is_scoped_to_random_mode" time="0.003" /><testcase classname="sim.tests.unit.test_task2_config.Task2ConfigTest" name="test_fixed_mode_and_unknown_field_are_rejected" time="0.035" /><testcase classname="sim.tests.unit.test_task2_config.Task2ConfigTest" name="test_fixed_preprocessing_overrides_global_card_parameters" time="0.002" /><testcase classname="sim.tests.unit.test_task2_config.Task2ConfigTest" name="test_json_configures_edge_thresholds_independently" time="0.018" /><testcase classname="sim.tests.unit.test_task2_config.Task2ConfigTest" name="test_official_configuration_is_random_white_paper_task" time="0.001" /><testcase classname="sim.tests.unit.test_task2_config.Task2ConfigTest" name="test_runtime_selects_default_task2_json" time="0.000" /><testcase classname="sim.tests.unit.test_task2_config.Task2ConfigTest" name="test_task2_specific_environment_overrides_json_mode" time="0.001" /><testcase classname="sim.tests.unit.test_warm_task" name="test_idle_worker_exits_on_eof_without_calling_an_application" time="0.002" /><testcase classname="sim.tests.unit.test_warm_task" name="test_explicit_request_runs_once_with_current_environment" time="0.000" /><testcase classname="sim.tests.unit.test_warm_task" name="test_slot_does_not_stop_a_dispatched_task" time="0.001" /><testcase classname="sim.tests.unit.test_warm_task" name="test_unknown_command_rejected_before_creating_worker" time="0.001" /><testcase classname="sim.tests.unit.vision.test_adaptive_preprocess" name="test_real_print_crossing_cut_edges_stays_four_pieces[0.6]" time="0.208" /><testcase classname="sim.tests.unit.vision.test_adaptive_preprocess" name="test_real_print_crossing_cut_edges_stays_four_pieces[0.8]" time="0.191" /><testcase classname="sim.tests.unit.vision.test_adaptive_preprocess" name="test_real_print_crossing_cut_edges_stays_four_pieces[0.9]" time="0.197" /><testcase classname="sim.tests.unit.vision.test_adaptive_preprocess" name="test_real_print_crossing_cut_edges_stays_four_pieces[0.95]" time="0.202" /><testcase classname="sim.tests.unit.vision.test_adaptive_preprocess" name="test_real_print_crossing_cut_edges_stays_four_pieces[1.0]" time="0.196" /><testcase classname="sim.tests.unit.vision.test_adaptive_preprocess" name="test_real_print_crossing_cut_edges_stays_four_pieces[1.05]" time="0.168" /><testcase classname="sim.tests.unit.vision.test_adaptive_preprocess" name="test_real_print_crossing_cut_edges_stays_four_pieces[1.1]" time="0.171" /><testcase classname="sim.tests.unit.vision.test_adaptive_preprocess" name="test_original_scene_reproduces_static_threshold_failure" time="0.012" /><testcase classname="sim.tests.unit.vision.test_adaptive_preprocess" name="test_intermediate_blue_card_print_keeps_cut_edges_across_exposure[4-0.6]" time="0.080" /><testcase classname="sim.tests.unit.vision.test_adaptive_preprocess" name="test_intermediate_blue_card_print_keeps_cut_edges_across_exposure[4-0.8]" time="0.057" /><testcase classname="sim.tests.unit.vision.test_adaptive_preprocess" name="test_intermediate_blue_card_print_keeps_cut_edges_across_exposure[4-1.0]" time="0.057" /><testcase classname="sim.tests.unit.vision.test_adaptive_preprocess" name="test_intermediate_blue_card_print_keeps_cut_edges_across_exposure[4-1.1]" time="0.058" /><testcase classname="sim.tests.unit.vision.test_adaptive_preprocess" name="test_intermediate_blue_card_print_keeps_cut_edges_across_exposure[4-1.2]" time="0.062" /><testcase classname="sim.tests.unit.vision.test_adaptive_preprocess" name="test_intermediate_blue_card_print_keeps_cut_edges_across_exposure[None-0.6]" time="0.065" /><testcase classname="sim.tests.unit.vision.test_adaptive_preprocess" name="test_intermediate_blue_card_print_keeps_cut_edges_across_exposure[None-0.8]" time="0.070" /><testcase classname="sim.tests.unit.vision.test_adaptive_preprocess" name="test_intermediate_blue_card_print_keeps_cut_edges_across_exposure[None-1.0]" time="0.067" /><testcase classname="sim.tests.unit.vision.test_adaptive_preprocess" name="test_intermediate_blue_card_print_keeps_cut_edges_across_exposure[None-1.1]" time="0.067" /><testcase classname="sim.tests.unit.vision.test_adaptive_preprocess" name="test_intermediate_blue_card_print_keeps_cut_edges_across_exposure[None-1.2]" time="0.070" /><testcase classname="sim.tests.unit.vision.test_adaptive_preprocess" name="test_intermediate_profile_requires_current_background_evidence" time="0.007" /><testcase classname="sim.tests.unit.vision.test_adaptive_preprocess" name="test_fixed_cyan_scene_uses_its_own_color_profile" time="0.147" /><testcase classname="sim.tests.unit.vision.test_adaptive_preprocess" name="test_fixed_auto_profile_handles_both_recorded_color_states[0.7-fixed-cyan-background.png-275]" time="0.037" /><testcase classname="sim.tests.unit.vision.test_adaptive_preprocess" name="test_fixed_auto_profile_handles_both_recorded_color_states[0.7-fixed-blue-cast.png-320]" time="0.055" /><testcase classname="sim.tests.unit.vision.test_adaptive_preprocess" name="test_fixed_auto_profile_handles_both_recorded_color_states[0.85-fixed-cyan-background.png-275]" time="0.039" /><testcase classname="sim.tests.unit.vision.test_adaptive_preprocess" name="test_fixed_auto_profile_handles_both_recorded_color_states[0.85-fixed-blue-cast.png-320]" time="0.035" /><testcase classname="sim.tests.unit.vision.test_adaptive_preprocess" name="test_fixed_auto_profile_handles_both_recorded_color_states[1.0-fixed-cyan-background.png-275]" time="0.037" /><testcase classname="sim.tests.unit.vision.test_adaptive_preprocess" name="test_fixed_auto_profile_handles_both_recorded_color_states[1.0-fixed-blue-cast.png-320]" time="0.037" /><testcase classname="sim.tests.unit.vision.test_adaptive_preprocess" name="test_fixed_auto_profile_handles_both_recorded_color_states[1.1-fixed-cyan-background.png-275]" time="0.040" /><testcase classname="sim.tests.unit.vision.test_adaptive_preprocess" name="test_fixed_auto_profile_handles_both_recorded_color_states[1.1-fixed-blue-cast.png-320]" time="0.039" /><testcase classname="sim.tests.unit.vision.test_adaptive_preprocess" name="test_auto_profile_rejects_missing_or_insufficient_blue_without_stale_reuse" time="0.005" /><testcase classname="sim.tests.unit.vision.test_adaptive_preprocess" name="test_print_rejection_does_not_fill_concavity_or_bridge_gap" time="0.011" /><testcase classname="sim.tests.unit.vision.test_adaptive_preprocess" name="test_no_blue_background_fails_instead_of_using_stale_threshold" time="0.000" /><testcase classname="sim.tests.unit.vision.test_adaptive_preprocess" name="test_invalid_fraction_rejected[-1]" time="0.000" /><testcase classname="sim.tests.unit.vision.test_adaptive_preprocess" name="test_invalid_fraction_rejected[256]" time="0.000" /><testcase classname="sim.tests.unit.vision.test_adaptive_preprocess" name="test_invalid_fraction_rejected[True]" time="0.000" /><testcase classname="sim.tests.unit.vision.test_adaptive_preprocess" name="test_invalid_fraction_rejected[1.5]" time="0.001" /><testcase classname="sim.tests.unit.vision.test_axu5ev_workspace.Axu5evWorkspaceTests" name="test_live_frames_use_verified_edges_and_preserve_four_pieces" time="0.211" /><testcase classname="sim.tests.unit.vision.test_axu5ev_workspace.Axu5evWorkspaceTests" name="test_stale_reference_is_reported_instead_of_silently_clipping" time="0.036" /><testcase classname="sim.tests.unit.vision.test_capture_fast_path" name="test_edge_tiles_preserve_full_image_blur_lab_and_chroma[seed0]" time="0.004" /><testcase classname="sim.tests.unit.vision.test_capture_fast_path" name="test_edge_tiles_preserve_full_image_blur_lab_and_chroma[seed1]" time="0.003" /><testcase classname="sim.tests.unit.vision.test_capture_fast_path" name="test_random_rectangles_do_not_refit_when_recovery_adds_no_vertices" time="0.017" /><testcase classname="sim.tests.unit.vision.test_capture_fast_path" name="test_blue_tinted_white_pieces_survive_current_board_colour_profile" time="0.016" /><testcase classname="sim.tests.unit.vision.test_detector" name="test_vision_never_adds_candidate_outside_yolo_mask" time="0.041" /><testcase classname="sim.tests.unit.vision.test_detector" name="test_vision_never_returns_geometry_from_coarse_mask_alone" time="0.125" /><testcase classname="sim.tests.unit.vision.test_detector" name="test_contained_smaller_duplicate_is_suppressed" time="0.000" /><testcase classname="sim.tests.unit.vision.test_detector" name="test_low_score_noncontained_instance_is_preserved" time="0.000" /><testcase classname="sim.tests.unit.vision.test_detector" name="test_partially_contained_instance_is_preserved" time="0.000" /><testcase classname="sim.tests.unit.vision.test_detector" name="test_stable_vision_requires_configured_consecutive_frames" time="0.207" /><testcase classname="sim.tests.unit.vision.test_detector" name="test_production_factory_uses_task_edge_configuration" time="0.000" /><testcase classname="sim.tests.unit.vision.test_detector" name="test_stable_vision_close_is_idempotent" time="0.000" /><testcase classname="sim.tests.unit.vision.test_detector" name="test_vision_config_rejects_out_of_contract_values" time="0.000" /><testcase classname="sim.tests.unit.vision.test_detector" name="test_polygon_selection_never_returns_edge_below_physical_limit" time="0.008" /><testcase classname="sim.tests.unit.vision.test_detector" name="test_polygon_selection_preserves_significant_concave_corner" time="0.009" /><testcase classname="sim.tests.unit.vision.test_detector" name="test_polygon_selection_removes_shallow_concave_artifact" time="0.008" /><testcase classname="sim.tests.unit.vision.test_detector" name="test_polygon_selection_enforces_minimum_iou" time="0.004" /><testcase classname="sim.tests.unit.vision.test_detector" name="test_simple_polygon_rejects_self_intersection" time="0.000" /><testcase classname="sim.tests.unit.vision.test_detector" name="test_stabilizer_preserves_valid_concave_polygon" time="0.001" /><testcase classname="sim.tests.unit.vision.test_detector" name="test_stabilizer_rejects_polygon_with_short_physical_edge" time="0.001" /><testcase classname="sim.tests.unit.vision.test_detector" name="test_stabilizer_mask_association_still_rejects_large_disjoint_moves" time="0.001" /><testcase classname="sim.tests.unit.vision.test_linux_pl" name="test_uio_bulk_transfer_uses_aligned_words" time="0.001" /><testcase classname="sim.tests.unit.vision.test_linux_pl" name="test_hardware_identity_requires_matching_pair" time="0.022" /><testcase classname="sim.tests.unit.vision.test_linux_pl" name="test_preprocess_dma_layout_and_copy" time="0.003" /><testcase classname="sim.tests.unit.vision.test_linux_pl" name="test_transport_fault_latches_until_reopen" time="0.003" /><testcase classname="sim.tests.unit.vision.test_linux_pl" name="test_fixed_auto_updates_ratio_and_brightness_together_per_frame" time="0.004" /><testcase classname="sim.tests.unit.vision.test_linux_pl" name="test_adaptive_threshold_sent_per_frame_without_poisoning_dma" time="0.002" /><testcase classname="sim.tests.unit.vision.test_linux_pl" name="test_partial_allocation_releases_buffers" time="0.000" /><testcase classname="sim.tests.unit.vision.test_linux_pl" name="test_invalid_input_never_submitted" time="0.002" /><testcase classname="sim.tests.unit.vision.test_outline_edges" name="test_refinement_recovers_known_fractional_corners_without_losing_concavity[corners0]" time="0.014" /><testcase classname="sim.tests.unit.vision.test_outline_edges" name="test_refinement_recovers_known_fractional_corners_without_losing_concavity[corners1]" time="0.013" /><testcase classname="sim.tests.unit.vision.test_outline_edges" name="test_missing_color_transition_keeps_the_validated_seed" time="0.001" /><testcase classname="sim.tests.unit.vision.test_pl_backend.PlTest" name="test_faults_poison_backend_and_release_after_reset" time="0.018" /><testcase classname="sim.tests.unit.vision.test_pl_backend.PlTest" name="test_receive_allocation_failure_releases_transmit_buffer" time="0.000" /><testcase classname="sim.tests.unit.vision.test_pl_backend.PlTest" name="test_reset_access_failure_retains_buffers" time="0.000" /><testcase classname="sim.tests.unit.vision.test_pl_backend.PlTest" name="test_resize_and_noncontiguous_input_preserve_owned_output" time="0.001" /><testcase classname="sim.tests.unit.vision.test_pl_backend.PlTest" name="test_roundtrip_and_consecutive_frames" time="0.001" /><testcase classname="sim.tests.unit.vision.test_random_shallow" name="test_supported_shallow_fifth_corner_is_recovered[random2-18-two_polyline-2]" time="0.115" /><testcase classname="sim.tests.unit.vision.test_random_shallow" name="test_supported_shallow_fifth_corner_is_recovered[random3-02-three_y-3]" time="0.129" /><testcase classname="sim.tests.unit.vision.test_resize.ResizeConfigTest" name="test_default_config_is_valid" time="0.001" /><testcase classname="sim.tests.unit.vision.test_resize.ResizeConfigTest" name="test_invalid_a4_ratio_is_rejected" time="0.000" /><testcase classname="sim.tests.unit.vision.test_resize.ResizeConfigTest" name="test_invalid_reference_corner_order_is_rejected" time="0.000" /><testcase classname="sim.tests.unit.vision.test_resize.ResizeConfigTest" name="test_portrait_target_is_rejected" time="0.000" /><testcase classname="sim.tests.unit.vision.test_resize.ResizeConfigTest" name="test_reference_corners_are_frozen_from_json_lists" time="0.000" /><testcase classname="sim.tests.unit.vision.test_resize.ResizeConfigTest" name="test_transition_fit_resolves_fractional_pixel_edge" time="0.009" /><testcase classname="sim.tests.unit.vision.test_resize.ResizeTest" name="test_dark_blue_cast_black_base_is_not_treated_as_blue_paper" time="0.019" /><testcase classname="sim.tests.unit.vision.test_resize.ResizeTest" name="test_detect_size_cannot_exceed_input" time="0.001" /><testcase classname="sim.tests.unit.vision.test_resize.ResizeTest" name="test_detect_size_must_preserve_source_aspect" time="0.003" /><testcase classname="sim.tests.unit.vision.test_resize.ResizeTest" name="test_external_blue_object_is_ignored" time="0.020" /><testcase classname="sim.tests.unit.vision.test_resize.ResizeTest" name="test_homography_maps_source_to_target_corners" time="0.020" /><testcase classname="sim.tests.unit.vision.test_resize.ResizeTest" name="test_large_edge_occlusion_is_rejected" time="0.025" /><testcase classname="sim.tests.unit.vision.test_resize.ResizeTest" name="test_local_glare_does_not_veto_other_blue_paper_regions" time="0.022" /><testcase classname="sim.tests.unit.vision.test_resize.ResizeTest" name="test_missing_workspace_is_rejected" time="0.018" /><testcase classname="sim.tests.unit.vision.test_resize.ResizeTest" name="test_moderate_brightness_changes_preserve_corner_accuracy" time="0.080" /><testcase classname="sim.tests.unit.vision.test_resize.ResizeTest" name="test_narrow_search_band_keeps_room_for_side_samples" time="0.024" /><testcase classname="sim.tests.unit.vision.test_resize.ResizeTest" name="test_non_blue_bright_quadrilateral_is_rejected" time="0.032" /><testcase classname="sim.tests.unit.vision.test_resize.ResizeTest" name="test_partial_shadow_preserves_corner_accuracy" time="0.038" /><testcase classname="sim.tests.unit.vision.test_resize.ResizeTest" name="test_recovers_partially_occluded_corner_from_four_lines" time="0.023" /><testcase classname="sim.tests.unit.vision.test_resize.ResizeTest" name="test_rectifies_perspective_workspace" time="0.046" /><testcase classname="sim.tests.unit.vision.test_resize.ResizeTest" name="test_workspace_touching_frame_border_is_rejected" time="0.020" /><testcase classname="sim.tests.unit.vision.test_resize.FreshWorkspaceTrackingTest" name="test_movement_outside_fine_band_falls_back_to_fresh_coarse_search" time="0.057" /><testcase classname="sim.tests.unit.vision.test_resize.FreshWorkspaceTrackingTest" name="test_previous_corners_never_hide_occlusion_or_replace_new_measurement" time="0.079" /><testcase classname="sim.tests.unit.vision.test_result_contract.VisionResultPublicContractTest" name="test_coordinate_system_and_polygon_order_are_canonical" time="0.000" /><testcase classname="sim.tests.unit.vision.test_result_contract.VisionResultPublicContractTest" name="test_public_exports_and_field_types_are_frozen" time="0.001" /><testcase classname="sim.tests.unit.vision.test_result_contract.VisionResultPublicContractTest" name="test_relative_coordinates_derive_from_rounded_pixel_coordinates" time="0.000" /><testcase classname="sim.tests.unit.vision.test_result_contract.VisionResultPublicContractTest" name="test_repeated_serialization_does_not_mutate_source" time="0.000" /><testcase classname="sim.tests.unit.vision.test_result_contract.VisionResultPublicContractTest" name="test_result_objects_are_immutable_slot_dataclasses" time="0.000" /><testcase classname="sim.tests.unit.vision.test_result_contract.VisionResultPublicContractTest" name="test_serialized_shape_is_exact_and_json_compatible" time="0.000" /><testcase classname="sim.tests.unit.vision.test_single_vision_layout" name="test_numbered_and_legacy_vision_directories_are_absent" time="0.000" /><testcase classname="sim.tests.unit.vision.test_single_vision_layout" name="test_source_tree_has_no_legacy_import_or_detector_call" time="0.234" /><testcase classname="sim.tests.unit.vision.test_traditional.TraditionalTest" name="test_auto_count_rejects_one_five_boundary_and_touching" time="0.042" /><testcase classname="sim.tests.unit.vision.test_traditional.TraditionalTest" name="test_auto_count_requires_new_stable_frames_after_count_changes" time="0.266" /><testcase classname="sim.tests.unit.vision.test_traditional.TraditionalTest" name="test_black_print_reaching_edge_does_not_cut_paper" time="0.014" /><testcase classname="sim.tests.unit.vision.test_traditional.TraditionalTest" name="test_concave_and_printed_interior" time="0.018" /><testcase classname="sim.tests.unit.vision.test_traditional.TraditionalTest" name="test_count_and_boundary_fail_whole_frame" time="0.020" /><testcase classname="sim.tests.unit.vision.test_traditional.TraditionalTest" name="test_factory_no_npu_and_reset_on_invalid_frame" time="0.131" /><testcase classname="sim.tests.unit.vision.test_traditional.TraditionalTest" name="test_live_clipped_tip_recovers_four_supported_edges" time="0.009" /><testcase classname="sim.tests.unit.vision.test_traditional.TraditionalTest" name="test_short_concave_notch_is_not_merged" time="0.002" /><testcase classname="sim.tests.unit.vision.test_traditional.TraditionalTest" name="test_touching_and_extra_piece" time="0.011" /><testcase classname="sim.tests.unit.vision.test_traditional.TraditionalTest" name="test_two_and_three_expected_counts" time="0.028" /><testcase classname="sim.tests.unit.vision.test_vision_drawing" name="test_a4_preview_uses_thin_lines_and_small_vertices" time="0.000" /><testcase classname="sim.tests.unit.vision.test_vision_drawing" name="test_draw_vision_does_not_modify_source_image" time="0.003" /></testsuite></testsuites>

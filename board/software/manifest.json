@@ -1,0 +1,61 @@
+{
+  "wheels": [
+    {
+      "file": "ec_26_e-0.1.0-py3-none-any.whl",
+      "sha256": "c083e024b5ac28388d9a758984e501664aab4171585cbcd089059b15e4ff0455",
+      "requires_dist": [
+        "gpiod (>=1.5,<2.0) ; sys_platform == \"linux\"",
+        "numpy (>=2.0.0)",
+        "opencv-python (>=4.10.0.84)",
+        "puzzle-m0-bridge (==0.1.0)",
+        "puzzle-solver (==0.1.0)",
+        "pyserial (>=3.5,<4.0)",
+        "python-periphery (>=2.4,<3.0) ; sys_platform == \"linux\"",
+        "scipy (>=1.13.0,<2.0.0)",
+        "shapely (>=2.0.0,<3.0.0)",
+        "typer (>=0.12.0)"
+      ]
+    },
+    {
+      "file": "puzzle_solver-0.1.0-py3-none-any.whl",
+      "sha256": "014a16a71aca35d4d39f06a309adee3f446d888e5d902ddbb8b95d1b1c6b7ed1",
+      "requires_dist": [
+        "matplotlib (>=3.8,<4) ; extra == \"diagnostics\"",
+        "numpy (>=2.0,<3)",
+        "pillow (>=10,<13) ; extra == \"diagnostics\"",
+        "psutil (>=5.9,<8) ; extra == \"diagnostics\"",
+        "scipy (>=1.13,<2)",
+        "shapely (>=2,<3)",
+        "typer (>=0.12,<1)"
+      ]
+    },
+    {
+      "file": "puzzle_m0_bridge-0.1.0-py3-none-any.whl",
+      "sha256": "8b3f6fc26381b62a812b4a22fb451638b6faec7aa82c0b8ca9bad4d1cb8e9ea9",
+      "requires_dist": [
+        "click (>=8.1,<8.2)",
+        "pyserial (>=3.5,<4.0)",
+        "typer (>=0.12.5,<0.13.0)"
+      ]
+    }
+  ],
+  "repositories": {
+    "application": {
+      "commit": "10380bddaa27e8dafa2c7bf2d5075d6e03541dbe",
+      "status": "",
+      "url": "https://github.com/Cosimo2233/puzzle5ev.git"
+    },
+    "solver": {
+      "commit": "511c237212789df2e449a789a0a51289fccfa12f",
+      "status": "",
+      "url": "https://github.com/Cosimo2233/puzzle-solver.git"
+    },
+    "bridge": {
+      "commit": "f0637fe8eadaa81879b1f64e8212b2d13ac93126",
+      "status": "",
+      "url": "https://github.com/Cosimo2233/mspm0g3507-puzzle-bridge.git"
+    }
+  },
+  "motion_tested": false,
+  "hardware_changed": false
+}

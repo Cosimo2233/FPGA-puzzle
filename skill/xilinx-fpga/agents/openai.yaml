@@ -1,0 +1,4 @@
+interface:
+  display_name: "赛灵思 FPGA 开发"
+  short_description: "规范赛灵思 FPGA 工程组织、RTL/HLS 开发、构建验证与交付"
+  default_prompt: "使用 $xilinx-fpga 检查当前 FPGA 工程，并完成所需的开发、构建验证与交付整理。"

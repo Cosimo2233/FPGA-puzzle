@@ -1,0 +1,33 @@
+//@cliArgs --device "MSPM0G350X" --package "LQFP-48(PT)" --part "Default"
+//@v2CliArgs --device "MSPM0G3507" --package "LQFP-48(PT)"
+const UART = scripting.addModule("/ti/driverlib/UART", {}, false);
+const host = UART.addInstance();
+const xyz = UART.addInstance();
+const rot = UART.addInstance();
+const GPIO = scripting.addModule("/ti/driverlib/GPIO", {}, false);
+const magnet = GPIO.addInstance();
+const SYSCTL = scripting.addModule("/ti/driverlib/SYSCTL");
+const Board = scripting.addModule("/ti/driverlib/Board", {}, false);
+SYSCTL.forceDefaultClkConfig = true;
+SYSCTL.clockTreeEn = true;
+
+function serial(port, name, instance, tx, rx, baud) {
+    port.$name = name;
+    port.direction = rx === null ? "TX" : "TX_RX";
+    port.peripheral.$assign = instance;
+    port.peripheral.txPin.$assign = tx;
+    if (rx !== null) port.peripheral.rxPin.$assign = rx;
+    port.targetBaudRate = baud;
+    port.enableFIFO = true;
+    port.enabledInterrupts = rx === null ? [] : ["RX"];
+}
+serial(host, "HOST", "UART0", "PA10", "PA11", 921600);
+// XYZ has no feedback requirement. Leave PA9 unassigned and disable the receiver.
+serial(xyz, "XYZ", "UART1", "PA8", null, 115200);
+serial(rot, "ROT", "UART2", "PA21", "PA22", 115200);
+magnet.$name = "MAGNET";
+magnet.port = "PORTB";
+magnet.associatedPins.create(1);
+magnet.associatedPins[0].$name = "OUT";
+magnet.associatedPins[0].pin.$assign = "PB8";
+magnet.associatedPins[0].initialValue = "CLEARED";

@@ -1,0 +1,31 @@
+{
+  "snapshot_date": "2026-11-01",
+  "repositories": {
+    "application": {
+      "commit": "10380bddaa27e8dafa2c7bf2d5075d6e03541dbe",
+      "status": "",
+      "url": "https://github.com/Cosimo2233/puzzle5ev.git"
+    },
+    "solver": {
+      "commit": "511c237212789df2e449a789a0a51289fccfa12f",
+      "status": "",
+      "url": "https://github.com/Cosimo2233/puzzle-solver.git"
+    },
+    "bridge": {
+      "commit": "f0637fe8eadaa81879b1f64e8212b2d13ac93126",
+      "status": "",
+      "url": "https://github.com/Cosimo2233/mspm0g3507-puzzle-bridge.git"
+    }
+  },
+  "application_source_policy": "几何求解器通过公共 API 调用，内部依赖使用固定 wheel。",
+  "dependencies": {
+    "puzzle_m0_bridge-0.1.0-py3-none-any.whl": "8b3f6fc26381b62a812b4a22fb451638b6faec7aa82c0b8ca9bad4d1cb8e9ea9",
+    "puzzle_solver-0.1.0-py3-none-any.whl": "014a16a71aca35d4d39f06a309adee3f446d888e5d902ddbb8b95d1b1c6b7ed1"
+  },
+  "included_features": [
+    "fixed",
+    "random",
+    "tangram_12_patterns",
+    "click_to_compute_and_total_timing"
+  ]
+}

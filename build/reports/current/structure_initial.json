@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "file_count": 655,
+  "bytes": 32715414,
+  "failures": [],
+  "naming_exceptions": [
+    "README.md required by guide",
+    "original skill SKILL.md retained at user request"
+  ],
+  "motion_executed": false
+}

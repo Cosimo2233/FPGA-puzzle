@@ -1,0 +1,23 @@
+{
+  "artifacts": {
+    "ec_26_e-0.1.0-py3-none-any.whl": "d91014fbba31d1b88b8a02e5092c42c5cd750602971d2464540cf08062d55a93",
+    "font-copyright": "aee4111b1e01dd3d36514ee7d1e5b144f45e72f4dba83045bb9ff6e47fa4e680",
+    "install_speed_release.py": "51781c0b615481d18157d94ecc1b1a5bb96972e8bb21a0dece039876767a6bc3",
+    "install_tangram_release.py": "3f478b7cf3eba2ae5ce7dc00fc938e5393a6feab8e93202496258bdd9e462d74",
+    "puzzle_solver-0.1.0-py3-none-any.whl": "f08fc1a0f5416bbaacb8bf8fa091399a0f232952e36680171570ec6a0623dca9",
+    "wqy-microhei-ui.ttf": "1f992a2486b2adfd253ff0278570118169509d190a029a6223c3146df68c808d"
+  },
+  "preserved_config_sha256": {
+    "menu.json": "a3659b246a57b4eadfa42e245e29c27f63997c49190b99bbf96afc260131d444",
+    "machine.env": "aa4797769280d67e009b580bf99c0be0e4d53af79c6d44c8fea7dd4d9fde60af",
+    "model-service.json": "e4dc4b4c30b509c15d226bdda2366b7099d95ceab7bdf8c9ab692acec3436884",
+    "hardware.json": "7521a6e49b94cac4b5383cd06754d7276216bdc1d6ec07b8427b7a80290dd40d",
+    "solver2-source.json": "05b0e021a173774c8b7275c6a0a63225049dd6245a68627303717081e5b3050c",
+    "tasks/random.json": "1fb1eedc27a91d4a60fcf6ba5539b88edfc468acd9448b5d0690d258049fadf1",
+    "tasks/tangram.json": "4c0601a08aa9873a8f537827f108157e7f025fd2550cbe8294663156aa4d1e11",
+    "tasks/fixed.json": "179bc5026cc960e7c23104025e537d42a6475f0af961ba9575f3740190353c0e"
+  },
+  "tangram_motion_enabled": true,
+  "motion_tested": false,
+  "hardware_changed": false
+}

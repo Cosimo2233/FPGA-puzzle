@@ -1,0 +1,2 @@
+PASS: CRC, binary routing, replies, arming, lease/wraparound, corrupt/oversize/truncated frames, backpressure, faults, 100000 noise bytes
+PASS: idle UART noise is recorded/resynchronized; armed and ARM-boundary errors latch; downstream IRQ faults preserve host command and complete STATUS ACK; outputs stop, host RX faults discard partial commands; XYZ RX ignored, XYZ TX and rotation RX preserved
