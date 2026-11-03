@@ -34,7 +34,7 @@ def inspect():
     for p in files:
         rel=p.relative_to(ROOT)
         for part in rel.parts:
-            if part in {'README.md','SKILL.md'}:continue
+            if part in {'README.md','SKILL.md'} or (rel.as_posix()=='LICENSE'):continue
             if not re.fullmatch(r'[a-z0-9_.-]+',part):failures.append('Invalid path: '+rel.as_posix())
         if p.suffix=='.py':
             try:ast.parse(p.read_text(encoding='utf-8-sig'),filename=str(rel))
@@ -69,7 +69,7 @@ def inspect():
             s=p.read_text(encoding='utf-8-sig')
             if re.search(r'[dD]:[/\\]FPGA[/\\](puzzle5ev|puzzle7020)([/\\])',s):failures.append('Development workspace dependency: '+rel)
     return {'passed':not failures,'file_count':len(files),'bytes':sum(p.stat().st_size for p in files),'failures':failures,
-            'naming_exceptions':['README.md required by guide','SKILL.md is the skill entry filename'],
+            'naming_exceptions':['README.md required by guide','SKILL.md is the skill entry filename','LICENSE is the standard license filename'],
             'motion_executed':False}
 
 @app.command()

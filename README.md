@@ -91,3 +91,9 @@ poetry -C $psProject run python ../../build/validate_repository.py manifest --ve
 ```
 
 技能使用见 [开发技能](skill/README.md)，待完成材料见 [提交材料清单](report/submission_notes.md)。正式设计报告单独整理，不包含在当前仓库中。
+
+## 开源许可
+
+本项目原创代码及配套文档采用 [MIT License](LICENSE)，允许使用、修改和再分发，使用时须保留版权声明和许可文本。
+
+第三方代码、字体、依赖包及厂商资料保留各自的版权声明和许可证，不因本项目采用 MIT 而变更。文泉驿字体许可见 [字体版权说明](board/fonts/copyright)，依赖版本和来源见 [依赖清单](data/dependencies/versions.json)。
